@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200
+var speed = 125
 @onready var animated_sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
@@ -8,14 +8,13 @@ func _physics_process(delta):
 	velocity = direction * speed
 	
 	if direction.y > 0:
-		animated_sprite.frame = 0
+		animated_sprite.play("WalkDown")
 	elif direction.y < 0:
-		animated_sprite.frame = 1
-	
-	if direction.x > 0:
-		animated_sprite.frame = 2
-	elif direction.x < 0:
-		animated_sprite.frame = 3
+		animated_sprite.play("WalkUp")
 		
+	if direction.x > 0:
+		animated_sprite.play("WalkRight")
+	elif direction.x < 0:
+		animated_sprite.play("WalkLeft")
 	
 	move_and_slide()
