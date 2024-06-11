@@ -17,6 +17,5 @@ func _physics_process(delta):
 	elif direction.x < 0:
 		animated_sprite.frame = 3
 		
-	print(direction)
 	
 	move_and_slide()
