@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ctuwentbx0nwr"]
+[gd_scene load_steps=12 format=3 uid="uid://ctuwentbx0nwr"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_3afmi"]
 [ext_resource type="Texture2D" path="res://assets/sprites/world/fence/Fence-Front.png" id="2_50y2v"]
@@ -129,6 +129,12 @@ physics_layer_0/collision_layer = 1
 sources/7 = SubResource("TileSetAtlasSource_3m216")
 sources/8 = SubResource("TileSetAtlasSource_36iyu")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3riq2"]
+size = Vector2(928.125, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4122q"]
+size = Vector2(20, 808)
+
 [node name="Game" type="Node2D"]
 
 [node name="Ground" type="TileMap" parent="."]
@@ -143,10 +149,32 @@ layer_1/tile_data = PackedInt32Array(-131058, 1, 0, -131059, 1, 0, -131060, 1, 0
 position = Vector2(338, 206)
 
 [node name="Camera2D" type="Camera2D" parent="Sheep"]
-position = Vector2(0, -8)
 zoom = Vector2(2.5, 2.5)
+limit_left = -127
+limit_top = -160
+limit_right = 800
+limit_bottom = 608
+editor_draw_limits = true
 
 [node name="Obstacles" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_u4yr4")
 format = 2
 layer_0/tile_data = PackedInt32Array(851969, 7, 0, 851970, 7, 0, 851971, 7, 0, 851972, 7, 0, 851973, 7, 0, 851974, 7, 0, 851975, 7, 0, 851976, 7, 0, 851977, 7, 0, 851979, 7, 0, 851980, 7, 0, 851981, 7, 0, 851982, 7, 0, 851983, 7, 0, 851984, 7, 0, 851985, 7, 0, 851986, 7, 0, 851987, 7, 0, 851988, 7, 0, 851968, 7, 0, -131072, 7, 0, -131071, 7, 0, -131070, 7, 0, -131069, 7, 0, -131068, 7, 0, -131067, 7, 0, -131066, 7, 0, -131065, 7, 0, -131064, 7, 0, -131063, 7, 0, -131062, 7, 0, -131061, 7, 0, -131060, 7, 0, -131059, 7, 0, -131058, 7, 0, -131057, 7, 0, -131056, 7, 0, -131055, 7, 0, -131054, 7, 0, -131053, 7, 0, -131052, 7, 0, 851989, 8, 1, 786453, 65544, 0, 720917, 65544, 0, 655381, 65544, 0, 589845, 65544, 0, 524309, 65544, 0, 458773, 65544, 0, 393237, 65544, 0, 327701, 65544, 0, -65515, 65544, 0, 21, 65544, 0, 65557, 65544, 0, 131093, 65544, 0, 196629, 65544, 0, 262165, 65544, 0, -131051, 8, 0, 917503, 65544, 2, 851967, 8, 2, 786431, 8, 2, 720895, 8, 2, 655359, 8, 2, 589823, 8, 2, 524287, 8, 2, 458751, 8, 2, 393215, 8, 2, 327679, 8, 2, 262143, 8, 2, 196607, 8, 2, 131071, 8, 2, -1, 8, 2, 65535, 8, 2, -65537, 65544, 1)
+
+[node name="CollisionShapes" type="StaticBody2D" parent="."]
+
+[node name="TopLimit" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(336.125, -170)
+shape = SubResource("RectangleShape2D_3riq2")
+
+[node name="BottomLimit" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(336.063, 618)
+shape = SubResource("RectangleShape2D_3riq2")
+
+[node name="RightLimit" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(810, 224)
+shape = SubResource("RectangleShape2D_4122q")
+
+[node name="LeftLimit" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(-138, 224)
+shape = SubResource("RectangleShape2D_4122q")
