@@ -2,10 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_3afmi"]
 [ext_resource type="Texture2D" uid="uid://bsaadisk5ff4r" path="res://assets/sprites/world/fence/Fence-Front.png" id="2_50y2v"]
-[ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/sheep.tscn" id="2_h2afe"]
-[ext_resource type="Script" path="res://scripts/shepherd.gd" id="3_3yby1"]
+[ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_h2afe"]
+[ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="3_3yby1"]
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="3_oymjp"]
-[ext_resource type="PackedScene" uid="uid://cfrc15v1uj601" path="res://scenes/shepherd.tscn" id="5_1ebpn"]
+[ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="5_1ebpn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbt6q"]
 texture = ExtResource("1_3afmi")
@@ -87,15 +87,6 @@ texture_region_size = Vector2i(32, 16)
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.125, 16, 6, 16, 8, -16, 7.875)
-1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36iyu"]
 texture = ExtResource("3_oymjp")
