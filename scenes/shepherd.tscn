@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://cfrc15v1uj601"]
+
+[ext_resource type="Texture2D" uid="uid://0oe440pbmcw8" path="res://assets/sprites/shepherd/Shepherd-Base.png" id="1_jwbrv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbkjp"]
+atlas = ExtResource("1_jwbrv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_436rp"]
+atlas = ExtResource("1_jwbrv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edagy"]
+atlas = ExtResource("1_jwbrv")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0meqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbkjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_436rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edagy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ldqk6"]
+radius = 9.0
+
+[node name="Shepherd" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0meqh")
+animation = &"idle"
+frame = 1
+frame_progress = 0.31991
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 7)
+shape = SubResource("CircleShape2D_ldqk6")
