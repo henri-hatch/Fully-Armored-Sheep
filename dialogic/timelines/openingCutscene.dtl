@@ -1,0 +1,19 @@
+[background arg="res://addons/dialogic/Modules/Background/blackBackground.png" fade="0.0"]
+Shepherd: Little sheep, rise.
+[wait time="1.5"]
+[background scene="res://scenes/cutsceneMain.tscn" fade="2.5"]
+Shepherd: You were asleep, but I have awoken you to carry out a quest.
+Shepherd: There are many forces of evil plaguing the towns, and you must stand against them.
+Shepherd: The path is narrow, and there will be many dangers to lead you astray.
+Shepherd: But stay true to what I have told you, and I will illuminate your path and equip you with what you need to carry out my will.
+Shepherd: Take this.
+Shepherd: It is the Sword of the Spirit, and it will aid you in your journey.
+Shepherd: Go and defeat the forces of evil…
+Shepherd: Sloth and Gluttony,
+Shepherd: Deceit,
+Shepherd: Lust,
+Shepherd: Wrath,
+Shepherd: Pride and Envy…
+Shepherd: I will provide you with all that you need, so long as you listen to my guidance.
+Shepherd: Now go…
+Shepherd: and remember my words.
