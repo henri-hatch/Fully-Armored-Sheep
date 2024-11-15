@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctuwentbx0nwr"]
+[gd_scene load_steps=15 format=3 uid="uid://ctuwentbx0nwr"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_3afmi"]
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_p33w3"]
 [ext_resource type="Texture2D" uid="uid://bsaadisk5ff4r" path="res://assets/sprites/world/fence/Fence-Front.png" id="2_50y2v"]
 [ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_h2afe"]
 [ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="3_3yby1"]
@@ -129,6 +130,7 @@ size = Vector2(928.125, 20)
 size = Vector2(20, 808)
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_p33w3")
 
 [node name="Ground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ohp8k")
@@ -144,7 +146,7 @@ motion_mode = 1
 script = ExtResource("3_3yby1")
 
 [node name="Sheep" parent="." instance=ExtResource("2_h2afe")]
-position = Vector2(338, 206)
+position = Vector2(337, 154)
 motion_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="Sheep"]
