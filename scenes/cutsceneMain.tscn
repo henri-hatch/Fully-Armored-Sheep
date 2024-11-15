@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bna0620xdyc67"]
+[gd_scene load_steps=16 format=3 uid="uid://bna0620xdyc67"]
 
 [ext_resource type="Script" path="res://scripts/openingCutscene.gd" id="1_h3stg"]
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="2_dhkfb"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="5_pgvjp"]
 [ext_resource type="Texture2D" uid="uid://bsaadisk5ff4r" path="res://assets/sprites/world/fence/Fence-Front.png" id="6_d7l32"]
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="7_8k44n"]
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Character/node_portrait_container.gd" id="8_1pcii"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbt6q"]
 texture = ExtResource("2_dhkfb")
@@ -179,3 +180,13 @@ shape = SubResource("RectangleShape2D_4122q")
 [node name="LeftLimit" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(-138, 224)
 shape = SubResource("RectangleShape2D_4122q")
+
+[node name="DialogicNode_PortraitContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 97.0
+offset_right = 339.0
+offset_bottom = 134.0
+script = ExtResource("8_1pcii")
+container_ids = PackedStringArray("1")
