@@ -29,9 +29,7 @@ directories/dtl_directory={
 "openingCutscene": "res://dialogic/timelines/openingCutscene.dtl"
 }
 layout/style_list=["res://addons/dialogic/Modules/Style/customStyle.tres"]
-layout/default_style="res://addons/dialogic/Modules/Style/customStyle.tres"
-glossary/default_case_sensitive=true
-variables={}
+layout/default_style="Default"
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.07
 text/initial_text_reveal_skippable=true
@@ -51,7 +49,6 @@ choices/reveal_delay=0
 choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
-text/autopauses={}
 
 [editor]
 
