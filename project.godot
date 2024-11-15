@@ -23,7 +23,8 @@ GlobalVariables="*res://scripts/globalVariables.gd"
 [dialogic]
 
 directories/dch_directory={
-"Shepherd": "res://dialogic/characters/Shepherd.dch"
+"Shepherd": "res://dialogic/characters/Shepherd.dch",
+"swordCharacter": "res://dialogic/characters/swordCharacter.dch"
 }
 directories/dtl_directory={
 "openingCutscene": "res://dialogic/timelines/openingCutscene.dtl"
