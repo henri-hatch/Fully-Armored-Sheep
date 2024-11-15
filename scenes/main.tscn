@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctuwentbx0nwr"]
+[gd_scene load_steps=16 format=3 uid="uid://ctuwentbx0nwr"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_3afmi"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_p33w3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="3_3yby1"]
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="3_oymjp"]
 [ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="5_1ebpn"]
+[ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="5_bg0w1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbt6q"]
 texture = ExtResource("1_3afmi")
@@ -85,36 +86,22 @@ texture = ExtResource("2_50y2v")
 margins = Vector2i(0, 11)
 texture_region_size = Vector2i(32, 16)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 6.125, 16, 6, 16, 8, -16, 7.875)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36iyu"]
 texture = ExtResource("3_oymjp")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -2, -13, -2, -13, 16, -16, 16)
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -13, -16, -13, 8, -16, 8)
 0:2/0 = 0
-0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:2/0/physics_layer_0/angular_velocity = 0.0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(12.8125, -16, 16, -16, 16, 16, 12.9375, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -12.8605, -16, -12.9489, 16, -16, 16)
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(12.8605, -2.03293, 16, -2.12132, 16, 16, 12.9375, 16)
 1:2/0 = 0
-1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:2/0/physics_layer_0/angular_velocity = 0.0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(12.9489, -16, 16, -16, 16, 8.22012, 13.1257, 8.22012)
 
 [sub_resource type="TileSet" id="TileSet_u4yr4"]
@@ -143,6 +130,11 @@ layer_1/tile_data = PackedInt32Array(-131058, 1, 0, -131059, 1, 0, -131060, 1, 0
 [node name="Shepherd" parent="." instance=ExtResource("5_1ebpn")]
 position = Vector2(336, 103)
 script = ExtResource("3_3yby1")
+
+[node name="Snake 1" parent="." instance=ExtResource("5_bg0w1")]
+position = Vector2(300, 500)
+collision_layer = 9
+collision_mask = 9
 
 [node name="Sheep" parent="." instance=ExtResource("2_h2afe")]
 position = Vector2(337, 154)
