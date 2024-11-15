@@ -35,6 +35,7 @@ overrides = {
 "box_color_use_global": "false",
 "name_label_box_modulate": "Color(0.47451, 0.352941, 0.227451, 1)",
 "name_label_box_use_global_color": "false",
+"name_label_custom_color": "Color(0.92549, 0.882353, 0.839216, 1)",
 "name_label_font": "\"res://assets/fonts/PixelOperator8-Bold.ttf\"",
 "name_label_use_global_color": "false",
 "name_label_use_global_font": "false",
