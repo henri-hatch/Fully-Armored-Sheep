@@ -1,25 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://clb81ljaflf2v"]
+[gd_scene load_steps=4 format=3 uid="uid://sma017lam2m4"]
 
+[ext_resource type="Script" path="res://scripts/characterScripts/sword.gd" id="1_nbddu"]
 [ext_resource type="Texture2D" uid="uid://qlgjm62o5fb5" path="res://assets/sprites/sword/Sword-Left.png" id="1_ofqw0"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_re6st"]
-atlas = ExtResource("1_ofqw0")
-region = Rect2(7, 6, 17, 17)
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_rg5gi"]
+a = Vector2(-9.5, -2.5)
+b = Vector2(1.5, 8.5)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_axi3t"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_re6st")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}]
+[node name="sword" type="Area2D"]
+script = ExtResource("1_nbddu")
 
-[node name="Sword" type="CharacterBody2D"]
-motion_mode = 1
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, -4)
+texture = ExtResource("1_ofqw0")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_axi3t")
-animation = &"left"
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -11.5)
+shape = SubResource("SegmentShape2D_rg5gi")

@@ -143,7 +143,6 @@ layer_1/tile_data = PackedInt32Array(-131058, 1, 0, -131059, 1, 0, -131060, 1, 0
 
 [node name="Shepherd" parent="." instance=ExtResource("3_8t68i")]
 position = Vector2(336, 103)
-motion_mode = 1
 script = ExtResource("4_to7qv")
 
 [node name="Sheep" parent="." instance=ExtResource("5_pgvjp")]
