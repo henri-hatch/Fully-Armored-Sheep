@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3wril80xdc6f"
-path="res://.godot/imported/Sloth-Base.png-81ff982e17157a5a577948c8a8e92a27.ctex"
+uid="uid://bn02bbh31qqqq"
+path="res://.godot/imported/Sloth-Left.png-0faa74b294604427123ac6886bb56bbe.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/sins/sloth/Sloth-Base.png"
-dest_files=["res://.godot/imported/Sloth-Base.png-81ff982e17157a5a577948c8a8e92a27.ctex"]
+source_file="res://assets/sprites/sins/sloth/Sloth-Left.png"
+dest_files=["res://.godot/imported/Sloth-Left.png-0faa74b294604427123ac6886bb56bbe.ctex"]
 
 [params]
 
