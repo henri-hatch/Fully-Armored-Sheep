@@ -201,6 +201,7 @@ limit_bottom = 608
 editor_draw_limits = true
 
 [node name="pauseMenu" parent="Sheep/Camera2D" instance=ExtResource("10_sdame")]
+z_index = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
