@@ -1,6 +1,19 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1ev848fj50yh"]
+[gd_scene load_steps=15 format=3 uid="uid://c1ev848fj50yh"]
 
-[ext_resource type="Texture2D" uid="uid://b3wril80xdc6f" path="res://assets/sprites/sins/sloth/Sloth-Base.png" id="1_1u828"]
+[ext_resource type="Texture2D" uid="uid://b3wril80xdc6f" path="res://assets/sprites/sins/sloth/Sloth-Right.png" id="1_1u828"]
+[ext_resource type="Texture2D" uid="uid://bn02bbh31qqqq" path="res://assets/sprites/sins/sloth/Sloth-Left.png" id="1_vy8qe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7mgt"]
+atlas = ExtResource("1_vy8qe")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o1lvu"]
+atlas = ExtResource("1_vy8qe")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2me86"]
+atlas = ExtResource("1_vy8qe")
+region = Rect2(192, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_frjp7"]
 atlas = ExtResource("1_1u828")
@@ -18,6 +31,20 @@ region = Rect2(192, 0, 96, 96)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_x7mgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o1lvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2me86")
+}],
+"loop": true,
+"name": &"idleLeft",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_frjp7")
 }, {
 "duration": 1.0,
@@ -27,7 +54,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_j5uvh")
 }],
 "loop": true,
-"name": &"idle",
+"name": &"idleRight",
 "speed": 5.0
 }]
 
@@ -43,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle"]
+"values": [&"idleRight"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -59,8 +86,9 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_w4le2"]
-resource_name = "idle"
+resource_name = "idleRight"
 length = 3.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -71,7 +99,36 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idle"]
+"values": [&"idleRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_frh6c"]
+resource_name = "idleLeft"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleLeft"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -89,7 +146,8 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs4yg"]
 _data = {
 "RESET": SubResource("Animation_7soqg"),
-"idle": SubResource("Animation_w4le2")
+"idleLeft": SubResource("Animation_frh6c"),
+"idleRight": SubResource("Animation_w4le2")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dbkxi"]
@@ -100,7 +158,7 @@ radius = 24.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -48)
 sprite_frames = SubResource("SpriteFrames_bi345")
-animation = &"idle"
+animation = &"idleRight"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

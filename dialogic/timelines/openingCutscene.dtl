@@ -32,5 +32,4 @@ Shepherd: Now go…
 Shepherd: and remember my words.
 [background arg="res://addons/dialogic/Modules/Background/blackBackground.png" fade="2.5"]
 [wait time="2.5"]
-set {cutscenePlayed} = true
 do GlobalVariables.startGame()
