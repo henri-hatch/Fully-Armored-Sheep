@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cecxce0fyik7v"]
+[gd_scene load_steps=7 format=3 uid="uid://dcwfpc7e45wt"]
 
 [ext_resource type="PackedScene" uid="uid://c1ev848fj50yh" path="res://scenes/characters/sins/sloth.tscn" id="2_acudv"]
 [ext_resource type="Texture2D" uid="uid://b3qkxkun82wo3" path="res://assets/sprites/world/TX Tileset Wall.png" id="2_olld4"]
@@ -129,6 +129,74 @@ texture = ExtResource("2_olld4")
 18:5/0 = 0
 18:6/0 = 0
 18:7/0 = 0
+2:21/0 = 0
+3:21/0 = 0
+4:21/0 = 0
+5:21/0 = 0
+8:21/0 = 0
+9:21/0 = 0
+10:21/0 = 0
+11:21/0 = 0
+9:2/0 = 0
+9:3/0 = 0
+9:5/0 = 0
+10:2/0 = 0
+10:3/0 = 0
+10:4/0 = 0
+10:5/0 = 0
+12:2/0 = 0
+12:3/0 = 0
+12:4/0 = 0
+12:5/0 = 0
+14:2/0 = 0
+14:3/0 = 0
+14:4/0 = 0
+14:5/0 = 0
+24:6/0 = 0
+24:7/0 = 0
+24:8/0 = 0
+24:9/0 = 0
+25:6/0 = 0
+25:7/0 = 0
+25:8/0 = 0
+25:9/0 = 0
+26:6/0 = 0
+26:7/0 = 0
+26:8/0 = 0
+26:9/0 = 0
+27:6/0 = 0
+27:7/0 = 0
+27:8/0 = 0
+27:9/0 = 0
+24:4/0 = 0
+24:5/0 = 0
+27:4/0 = 0
+27:5/0 = 0
+25:4/0 = 0
+26:4/0 = 0
+24:2/0 = 0
+25:2/0 = 0
+26:2/0 = 0
+27:2/0 = 0
+28:2/0 = 0
+29:2/0 = 0
+21:2/0 = 0
+21:3/0 = 0
+21:4/0 = 0
+21:5/0 = 0
+21:6/0 = 0
+21:7/0 = 0
+2:4/0 = 0
+2:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+7:2/0 = 0
+7:3/0 = 0
+7:5/0 = 0
+5:2/0 = 0
+6:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_8nxqe"]
 sources/0 = SubResource("TileSetAtlasSource_sfql7")
