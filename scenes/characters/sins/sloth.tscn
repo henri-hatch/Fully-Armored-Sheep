@@ -1,37 +1,37 @@
-[gd_scene load_steps=10 format=3 uid="uid://73r6g6mm04gf"]
+[gd_scene load_steps=10 format=3 uid="uid://c1ev848fj50yh"]
 
-[ext_resource type="Texture2D" uid="uid://0oe440pbmcw8" path="res://assets/sprites/shepherd/Shepherd-Base.png" id="1_jwbrv"]
+[ext_resource type="Texture2D" uid="uid://b3wril80xdc6f" path="res://assets/sprites/sins/sloth/Sloth-Base.png" id="1_1u828"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_f2l6o"]
-atlas = ExtResource("1_jwbrv")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_frjp7"]
+atlas = ExtResource("1_1u828")
+region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yucu3"]
-atlas = ExtResource("1_jwbrv")
-region = Rect2(32, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxbbi"]
+atlas = ExtResource("1_1u828")
+region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ewxdt"]
-atlas = ExtResource("1_jwbrv")
-region = Rect2(64, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5uvh"]
+atlas = ExtResource("1_1u828")
+region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0meqh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_bi345"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_f2l6o")
+"texture": SubResource("AtlasTexture_frjp7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yucu3")
+"texture": SubResource("AtlasTexture_mxbbi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ewxdt")
+"texture": SubResource("AtlasTexture_j5uvh")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 1.0
+"speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_x3ot4"]
+[sub_resource type="Animation" id="Animation_7soqg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -58,7 +58,7 @@ tracks/1/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_chc0l"]
+[sub_resource type="Animation" id="Animation_w4le2"]
 resource_name = "idle"
 length = 3.0
 tracks/0/type = "value"
@@ -86,28 +86,27 @@ tracks/1/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ye1p"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vs4yg"]
 _data = {
-"RESET": SubResource("Animation_x3ot4"),
-"idle": SubResource("Animation_chc0l")
+"RESET": SubResource("Animation_7soqg"),
+"idle": SubResource("Animation_w4le2")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ldqk6"]
-radius = 9.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_dbkxi"]
+radius = 24.0
 
-[node name="Shepherd" type="CharacterBody2D"]
-motion_mode = 1
+[node name="Sloth" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -16)
-sprite_frames = SubResource("SpriteFrames_0meqh")
+position = Vector2(1, -48)
+sprite_frames = SubResource("SpriteFrames_bi345")
 animation = &"idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_1ye1p")
+"": SubResource("AnimationLibrary_vs4yg")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
-shape = SubResource("CircleShape2D_ldqk6")
+position = Vector2(1, -24)
+shape = SubResource("CircleShape2D_dbkxi")

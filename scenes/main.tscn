@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://ctuwentbx0nwr"]
+[gd_scene load_steps=21 format=3 uid="uid://ctuwentbx0nwr"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_3afmi"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_p33w3"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="3_oymjp"]
 [ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="5_1ebpn"]
 [ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="5_bg0w1"]
+[ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_ormtv"]
+[ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/pauseMenu.tscn" id="10_sdame"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbt6q"]
 texture = ExtResource("1_3afmi")
@@ -130,6 +132,43 @@ size = Vector2(1459.94, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4122q"]
 size = Vector2(20, 884)
 
+[sub_resource type="Animation" id="Animation_ckb0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4jpkt"]
+resource_name = "fadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Fade:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivji6"]
+_data = {
+"RESET": SubResource("Animation_ckb0e"),
+"fadeIn": SubResource("Animation_4jpkt")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p33w3")
 
@@ -142,7 +181,7 @@ layer_1/name = "Obstacles"
 layer_1/tile_data = PackedInt32Array(-131058, 1, 0, -131059, 1, 0, -131060, 1, 0, -131061, 1, 0, -131062, 1, 0, -131063, 1, 0, -131064, 1, 0, -131065, 1, 0, -131066, 1, 0, -131067, 1, 0, -131068, 1, 0, -131069, 1, 0, -131070, 1, 0, -131071, 1, 0, -131072, 1, 0, -131057, 1, 0, -131056, 1, 0, -131055, 1, 0, -131054, 1, 0, -131053, 1, 0, -131052, 1, 0, 851968, 1, 0, 851969, 1, 0, 851970, 1, 0, 851971, 1, 0, 851972, 1, 0, 851973, 1, 0, 851974, 1, 0, 851975, 1, 0, 851976, 1, 0, 851977, 1, 0, 851979, 1, 0, 851980, 1, 0, 851981, 1, 0, 851982, 1, 0, 851983, 1, 0, 851984, 1, 0, 851985, 1, 0, 851986, 1, 0, 851987, 1, 0, 851988, 1, 0, 851989, 5, 1, 786453, 65541, 0, 720917, 65541, 0, 655381, 65541, 0, 589845, 65541, 0, 524309, 65541, 0, 458773, 65541, 0, 393237, 65541, 0, 327701, 65541, 0, 262165, 65541, 0, 196629, 65541, 0, 131093, 65541, 0, 65557, 65541, 0, 21, 65541, 0, -65515, 65541, 0, -131051, 5, 0, -65537, 65541, 1, -1, 5, 2, 65535, 5, 2, 131071, 5, 2, 196607, 5, 2, 262143, 5, 2, 327679, 5, 2, 393215, 5, 2, 458751, 5, 2, 524287, 5, 2, 589823, 5, 2, 655359, 5, 2, 720895, 5, 2, 786431, 5, 2, 851967, 5, 2, 917503, 65541, 2)
 
 [node name="Shepherd" parent="." instance=ExtResource("5_1ebpn")]
-position = Vector2(336, 103)
+position = Vector2(336, 116)
 script = ExtResource("3_3yby1")
 
 [node name="Snake1" parent="." instance=ExtResource("5_bg0w1")]
@@ -160,6 +199,18 @@ limit_top = -256
 limit_right = 1056
 limit_bottom = 608
 editor_draw_limits = true
+
+[node name="pauseMenu" parent="Sheep/Camera2D" instance=ExtResource("10_sdame")]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = 1.0
+offset_right = 0.5
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Obstacles" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_3ghhq")
@@ -183,3 +234,16 @@ shape = SubResource("RectangleShape2D_4122q")
 [node name="LeftLimit" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(-394, 186)
 shape = SubResource("RectangleShape2D_4122q")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fade" type="Sprite2D" parent="CanvasLayer"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(389.5, 194.5)
+scale = Vector2(54.7813, 32.8438)
+texture = ExtResource("9_ormtv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_ivji6")
+}

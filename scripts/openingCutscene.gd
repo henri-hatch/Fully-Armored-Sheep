@@ -8,3 +8,4 @@ func _ready():
 	GlobalVariables.player_can_move = false
 	shepherdAnim.play("idle")
 	sheepAnim.play("up")
+	

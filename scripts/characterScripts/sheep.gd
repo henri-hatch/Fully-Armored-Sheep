@@ -10,6 +10,7 @@ var isAttacking: bool = false
 
 func _physics_process(delta):
 	if GlobalVariables.player_can_move == true:
+		weapon.visible = false
 		if Input.is_action_pressed("walk"):
 			speed = 50
 		else:
