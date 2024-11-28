@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://vifolr1rno1v"]
+[gd_scene load_steps=3 format=3 uid="uid://bemwx7lc1jtqn"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_e742k"]
-[ext_resource type="Theme" uid="uid://bi0il84kodvpr" path="res://assets/themes/buttonTheme.tres" id="2_i2ljh"]
+[ext_resource type="Theme" uid="uid://bi0il84kodvpr" path="res://assets/themes/buttonTheme.tres" id="1_4dakb"]
+[ext_resource type="Script" path="res://scenes/pauseMenu.gd" id="1_gd6kg"]
 
-[node name="menu" type="Control"]
+[node name="pauseMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e742k")
+script = ExtResource("1_gd6kg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1272.0
+offset_bottom = 732.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -28,23 +33,22 @@ grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-alignment = 1
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_i2ljh")
-text = "Play"
+theme = ExtResource("1_4dakb")
+text = "Resume"
 
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_i2ljh")
+theme = ExtResource("1_4dakb")
 text = "Options"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_i2ljh")
+theme = ExtResource("1_4dakb")
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

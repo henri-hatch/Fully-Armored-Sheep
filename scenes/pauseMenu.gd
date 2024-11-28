@@ -1,11 +1,10 @@
 extends Control
 
+@onready var main = $"res://scripts/main.gd"
 
+func _on_resume_pressed():
+	main.pause()
 
-func _on_play_pressed():
-	Dialogic.start("openingCutscene")
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
-	
 
 func _on_options_pressed():
 	pass # Replace with function body.
