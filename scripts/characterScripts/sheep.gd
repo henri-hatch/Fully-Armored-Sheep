@@ -4,7 +4,7 @@ var speed = 100
 var direction = Vector2.ZERO
 var lastAnimDir: String = "Down"
 var isAttacking: bool = false
-@onready var animations = $AnimationPlayer
+@onready var sheepAnim = $AnimationPlayer
 @onready var weapon = $Weapon
 
 
@@ -19,27 +19,27 @@ func _physics_process(delta):
 		velocity = playerDirection * speed
 		
 		if Input.is_action_pressed("attack"):
-			animations.play("attack" + lastAnimDir)
+			sheepAnim.play("attack" + lastAnimDir)
 			isAttacking = true
 			weapon.visible = true
-			await animations.animation_finished
+			await sheepAnim.animation_finished
 			isAttacking = false
 		
 		if playerDirection != direction:
 			if playerDirection.x > 0:
-				animations.play("walkRight")
+				sheepAnim.play("walkRight")
 				lastAnimDir = "Right"
 			elif playerDirection.x < 0:
-				animations.play("walkLeft")
+				sheepAnim.play("walkLeft")
 				lastAnimDir = "Left"
 			elif playerDirection.y > 0:
-				animations.play("walkDown")
+				sheepAnim.play("walkDown")
 				lastAnimDir = "Down"
 			elif playerDirection.y < 0:
-				animations.play("walkUp")
+				sheepAnim.play("walkUp")
 				lastAnimDir = "Up"
 		elif playerDirection == direction:
-			animations.stop()
+			sheepAnim.stop()
 			weapon.visible = false
 		
 		move_and_slide()
