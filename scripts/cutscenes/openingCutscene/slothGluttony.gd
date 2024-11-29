@@ -1,4 +1,4 @@
-extends Node2D
+extends DialogicBackground
 
 @onready var slothAnim = $Sloth/AnimationPlayer
 

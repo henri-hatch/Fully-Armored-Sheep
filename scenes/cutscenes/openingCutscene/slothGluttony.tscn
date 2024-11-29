@@ -13,4 +13,5 @@ scale = Vector2(49.7187, 30.6563)
 texture = ExtResource("2_bjny4")
 
 [node name="Sloth" parent="." instance=ExtResource("3_wcpmq")]
-position = Vector2(461, 348)
+position = Vector2(426, 388)
+scale = Vector2(3, 3)
