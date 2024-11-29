@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bemwx7lc1jtqn"]
 
 [ext_resource type="Theme" uid="uid://bi0il84kodvpr" path="res://assets/themes/buttonTheme.tres" id="1_4dakb"]
-[ext_resource type="Script" path="res://scripts/pauseMenu.gd" id="1_gd6kg"]
+[ext_resource type="Script" path="res://scripts/menus/pauseMenu.gd" id="1_gd6kg"]
 [ext_resource type="Shader" path="res://assets/shaders/pauseMenu.gdshader" id="2_7g5dp"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f10ky"]
