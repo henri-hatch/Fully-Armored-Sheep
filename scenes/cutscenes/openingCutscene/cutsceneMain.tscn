@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://llcyjv1v0gnv"]
 
-[ext_resource type="Script" path="res://scripts/openingCutscene.gd" id="1_h3stg"]
+[ext_resource type="Script" path="res://scripts/cutscenes/openingCutscene/openingCutscene.gd" id="1_h3stg"]
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="2_7wk7b"]
 [ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="3_r1veq"]
 [ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="4_4f873"]
