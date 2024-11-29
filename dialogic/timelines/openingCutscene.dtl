@@ -1,7 +1,7 @@
 [background arg="res://addons/dialogic/Modules/Background/blackBackground.png" fade="0.0"]
 Shepherd: Little sheep, rise.
 [wait time="1.5"]
-[background scene="res://scenes/cutsceneMain.tscn" fade="2.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/cutsceneMain.tscn" fade="2.5"]
 Shepherd: You were asleep, but I have awoken you to carry out a quest.
 Shepherd: There are many forces of evil plaguing the towns, and you must stand against them.
 Shepherd: The path is narrow, and there will be many dangers to lead you astray.
@@ -11,7 +11,7 @@ join swordCharacter center [animation="Fade In" length="1.5" wait="true"]
 Shepherd: It is the Sword of the Spirit, and it will aid you in your journey.
 leave swordCharacter [animation="Fade Out" length="1.5"]
 Shepherd: Go and defeat the forces of evil…
-[background fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/slothGluttony.tscn" fade="1.5"]
 Shepherd: Sloth and Gluttony,
 [background fade="1.5"]
 [wait time="1.5" hide_text="false"]
