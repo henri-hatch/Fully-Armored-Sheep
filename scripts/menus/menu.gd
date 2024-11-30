@@ -1,10 +1,12 @@
 extends Control
 
+func _ready():
+	MusicPlayer.play_song("res://assets/music/8-bit-main-menu.mp3")
 
 
 func _on_play_pressed():
 	Dialogic.start("openingCutscene")
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	MusicPlayer.stop_song()
 	
 
 func _on_options_pressed():
