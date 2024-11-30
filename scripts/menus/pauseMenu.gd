@@ -2,8 +2,8 @@ extends Control
 
 @onready var main = $"res://scripts/main.gd"
 
-func _on_resume_pressed():
-	main.pause()
+func _on_resume_pressed(scene_name):
+	scene_name.pause()
 
 
 func _on_options_pressed():

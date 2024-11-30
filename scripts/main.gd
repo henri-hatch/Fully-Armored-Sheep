@@ -12,6 +12,7 @@ func _ready():
 	pauseMenu.hide()
 	canvasAnim.play("fadeIn")
 	GlobalVariables.player_can_move = true
+	GlobalVariables.characters_can_move = true
 	shepherdAnim.play("idle")
 	sheepAnim.play("down")
 	
@@ -22,6 +23,8 @@ func _process(delta):
 func pause():
 	if paused:
 		pauseMenu.hide()
+		GlobalVariables.player_can_move = false
+		GlobalVariables.characters_can_move = false
 		Engine.time_scale = 1
 	else:
 		pauseMenu.show()
