@@ -11,21 +11,21 @@ join swordCharacter center [animation="Fade In" length="1.5" wait="true"]
 Shepherd: It is the Sword of the Spirit, and it will aid you in your journey.
 leave swordCharacter [animation="Fade Out" length="1.5"]
 Shepherd: Go and defeat the forces of evil…
-[background scene="res://scenes/cutscenes/openingCutscene/slothGluttony.tscn" fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/openingSlothGluttony.tscn" fade="1.5"]
 Shepherd: Sloth and Gluttony,
-[background fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/openingDeceit.tscn" fade="1.5"]
 [wait time="1.5" hide_text="false"]
 Shepherd: Deceit,
-[background fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/openingLust.tscn" fade="1.5"]
 [wait time="1.5" hide_text="false"]
 Shepherd: Lust,
-[background fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/openingWrath.tscn" fade="1.5"]
 [wait time="1.5" hide_text="false"]
 Shepherd: Wrath,
-[background fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/openingPrideEnvy.tscn" fade="1.5"]
 [wait time="1.5" hide_text="false"]
 Shepherd: Pride and Envy…
-[background scene="res://scenes/cutsceneMain.tscn" fade="1.5"]
+[background scene="res://scenes/cutscenes/openingCutscene/cutsceneMain.tscn" fade="1.5"]
 [wait time="1.5" hide_text="false"]
 Shepherd: I will provide you with all that you need, so long as you listen to my guidance.
 Shepherd: Now go…
