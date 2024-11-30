@@ -11,6 +11,7 @@ var paused = false
 func _ready():
 	pauseMenu.hide()
 	canvasAnim.play("fadeIn")
+	MusicPlayer.play_song("res://assets/music/8-bit-field.mp3")
 	GlobalVariables.player_can_move = true
 	GlobalVariables.characters_can_move = true
 	shepherdAnim.play("idle")

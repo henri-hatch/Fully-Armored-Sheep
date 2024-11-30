@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/8-bit-field.mp3-235d4926981d07029f70f1d4ab8ec
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0
