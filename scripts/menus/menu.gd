@@ -1,13 +1,14 @@
 extends Control
 
+signal music_started
+
 func _ready():
 	MusicPlayer.play_song("res://assets/music/8-bit-main-menu.mp3")
 
 
 func _on_play_pressed():
 	Dialogic.start("openingCutscene")
-	MusicPlayer.stop_song()
-	
+
 
 func _on_options_pressed():
 	pass # Replace with function body.
