@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8ikh26i3jeig"]
+
+[ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="1_0o5m5"]
+[ext_resource type="Script" path="res://scripts/cutscenes/openingCutscene/openingPrideEnvy.gd" id="1_qwwa7"]
+
+[node name="OpeningPrideEnvy" type="Node2D"]
+script = ExtResource("1_qwwa7")
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(574, 331.5)
+scale = Vector2(42.4375, 24.4688)
+texture = ExtResource("1_0o5m5")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 535.0
+offset_top = 261.0
+offset_right = 671.0
+offset_bottom = 301.0
+text = "Pride and Envy"

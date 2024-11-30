@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=3 uid="uid://eba56hdpvmbx"]
 
-[ext_resource type="Script" path="res://scripts/cutscenes/openingCutscene/slothGluttony.gd" id="1_yivbo"]
+[ext_resource type="Script" path="res://scripts/cutscenes/openingCutscene/openingSlothGluttony.gd" id="1_yivbo"]
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="2_bjny4"]
 [ext_resource type="PackedScene" uid="uid://c1ev848fj50yh" path="res://scenes/characters/sins/sloth.tscn" id="3_wcpmq"]
-[ext_resource type="PackedScene" path="res://scenes/characters/sins/gluttony.tscn" id="4_v8nc6"]
+[ext_resource type="PackedScene" uid="uid://bklobdodj62v0" path="res://scenes/characters/sins/gluttony.tscn" id="4_v8nc6"]
 
-[node name="SlothGluttony" type="Node2D"]
+[node name="OpeningSlothGluttony" type="Node2D"]
 script = ExtResource("1_yivbo")
 
 [node name="BlackBackground" type="Sprite2D" parent="."]

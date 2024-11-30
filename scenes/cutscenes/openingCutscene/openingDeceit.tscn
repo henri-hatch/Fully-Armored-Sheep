@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://kuumftopkt1q"]
+
+[ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="1_fi2jo"]
+[ext_resource type="Script" path="res://scripts/cutscenes/openingCutscene/openingDeceit.gd" id="1_smnck"]
+
+[node name="OpeningDeceit" type="Node2D"]
+script = ExtResource("1_smnck")
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(604, 338.5)
+scale = Vector2(45.5, 26.5938)
+texture = ExtResource("1_fi2jo")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 552.0
+offset_top = 268.0
+offset_right = 611.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Deceit"
