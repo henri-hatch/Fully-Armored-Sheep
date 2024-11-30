@@ -17,17 +17,19 @@ func _ready():
 	sheepAnim.play("down")
 	
 func _process(delta):
-	if Input.is_action_pressed("pause"):
+	if Input.is_action_just_pressed("pause"):
 		pause()
 
 func pause():
 	if paused:
 		pauseMenu.hide()
-		GlobalVariables.player_can_move = false
-		GlobalVariables.characters_can_move = false
+		GlobalVariables.player_can_move = true
+		GlobalVariables.characters_can_move = true
 		Engine.time_scale = 1
 	else:
 		pauseMenu.show()
+		GlobalVariables.player_can_move = false
+		GlobalVariables.characters_can_move = false
 		Engine.time_scale = 0
-	
+		
 	paused = !paused
