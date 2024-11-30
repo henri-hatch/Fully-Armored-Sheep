@@ -43,7 +43,8 @@ overrides = {
 "normal_font": "\"res://assets/fonts/PixelOperator8.ttf\"",
 "text_custom_color": "Color(0.92549, 0.882353, 0.839216, 1)",
 "text_use_global_color": "false",
-"text_use_global_font": "false"
+"text_use_global_font": "false",
+"typing_sounds_volume": "-1.0"
 }
 
 [sub_resource type="Resource" id="Resource_u10vr"]
