@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 
 @onready var dummy_player = AudioStreamPlayer.new()
 var fading = false
-var stop = false
+var stopping = false
 
 
 func _ready():
@@ -28,7 +28,7 @@ func _process(delta):
 		volume_db -= 30 * delta
 		if volume_db <= -60:
 			stop_playback()
-			stop = false
+			stopping = false
 
 
 func play_song(songName):
@@ -40,10 +40,10 @@ func play_song(songName):
 
 
 func stop_song():
-	stop = true
+	stopping = true
 
 
 func stop_playback():
-	self.stop
+	stop()
 	volume_db = 0
 	stream = null
