@@ -10,7 +10,7 @@ var paused = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pauseMenu.hide()
-	enterScene()
+	fadeAnim.play("fadeIn")
 	MusicPlayer.play_song("res://assets/music/8-bit-field.mp3")
 	GlobalVariables.player_can_move = true
 	GlobalVariables.characters_can_move = true
@@ -20,12 +20,6 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		pause()
-		
-func enterScene():
-	fadeAnim.play("fadeIn")
-
-func exitScene():
-	fadeAnim.play("fadeOut")
 
 func pause():
 	if paused:
