@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="3_3yby1"]
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="3_oymjp"]
 [ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="5_1ebpn"]
-[ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="5_bg0w1"]
-[ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_ormtv"]
+[ext_resource type="Script" path="res://scripts/sceneTrigger.gd" id="9_f63nr"]
+[ext_resource type="PackedScene" uid="uid://ddlf11rhnx3pd" path="res://scenes/fadeLayer.tscn" id="9_j6xuy"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="10_sdame"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbt6q"]
@@ -132,42 +132,14 @@ size = Vector2(1459.94, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4122q"]
 size = Vector2(20, 884)
 
-[sub_resource type="Animation" id="Animation_ckb0e"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fade:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 1)]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v7x8p"]
+size = Vector2(657, 20)
 
-[sub_resource type="Animation" id="Animation_4jpkt"]
-resource_name = "fadeIn"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Fade:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u0no0"]
+size = Vector2(676, 20)
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ivji6"]
-_data = {
-"RESET": SubResource("Animation_ckb0e"),
-"fadeIn": SubResource("Animation_4jpkt")
-}
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75157"]
+size = Vector2(127, 20)
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_p33w3")
@@ -184,10 +156,6 @@ layer_1/tile_data = PackedInt32Array(-131058, 1, 0, -131059, 1, 0, -131060, 1, 0
 position = Vector2(336, 116)
 script = ExtResource("3_3yby1")
 
-[node name="Snake1" parent="." instance=ExtResource("5_bg0w1")]
-position = Vector2(300, 500)
-collision_layer = 9
-
 [node name="Sheep" parent="." instance=ExtResource("2_h2afe")]
 position = Vector2(337, 154)
 motion_mode = 1
@@ -201,6 +169,7 @@ limit_bottom = 608
 editor_draw_limits = true
 
 [node name="pauseMenu" parent="Sheep/Camera2D" instance=ExtResource("10_sdame")]
+visible = false
 z_index = 1
 anchors_preset = -1
 anchor_left = 0.5
@@ -224,10 +193,6 @@ layer_0/tile_data = PackedInt32Array(-458741, 7, 0, -458742, 7, 0, -458743, 7, 0
 position = Vector2(326.031, -266)
 shape = SubResource("RectangleShape2D_3riq2")
 
-[node name="BottomLimit" type="CollisionShape2D" parent="CollisionShapes"]
-position = Vector2(346.063, 618)
-shape = SubResource("RectangleShape2D_3riq2")
-
 [node name="RightLimit" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(1066, 166)
 shape = SubResource("RectangleShape2D_4122q")
@@ -236,15 +201,22 @@ shape = SubResource("RectangleShape2D_4122q")
 position = Vector2(-394, 186)
 shape = SubResource("RectangleShape2D_4122q")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="BottomLimitLeft" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(-55.5, 618)
+shape = SubResource("RectangleShape2D_v7x8p")
 
-[node name="Fade" type="Sprite2D" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(389.5, 194.5)
-scale = Vector2(54.7813, 32.8438)
-texture = ExtResource("9_ormtv")
+[node name="BottomLimitRight" type="CollisionShape2D" parent="CollisionShapes"]
+position = Vector2(738, 618)
+shape = SubResource("RectangleShape2D_u0no0")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-libraries = {
-"": SubResource("AnimationLibrary_ivji6")
-}
+[node name="sceneTrigger" type="Area2D" parent="CollisionShapes"]
+script = ExtResource("9_f63nr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShapes/sceneTrigger"]
+position = Vector2(336.5, 618)
+shape = SubResource("RectangleShape2D_75157")
+
+[node name="FadeLayer" parent="." instance=ExtResource("9_j6xuy")]
+visible = false
+
+[connection signal="body_entered" from="CollisionShapes/sceneTrigger" to="CollisionShapes/sceneTrigger" method="_on_scene_trigger_body_entered"]

@@ -24,7 +24,7 @@ func _process(delta):
 			dummy_player.stop()
 			fading = false
 	
-	if stop:
+	if stopping:
 		volume_db -= 30 * delta
 		if volume_db <= -60:
 			stop_playback()

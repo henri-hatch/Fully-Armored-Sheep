@@ -1,6 +1,5 @@
 extends Control
 
-signal music_started
 
 func _ready():
 	MusicPlayer.play_song("res://assets/music/8-bit-main-menu.mp3")
