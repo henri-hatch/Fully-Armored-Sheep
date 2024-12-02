@@ -8,6 +8,7 @@ var player_inattack_zone = false
 var can_take_damage = true
 func _physics_process(delta):
 	deal_with_damage()
+	update_health()
 	if GlobalVariables.characters_can_move == true:
 		if player_chase:
 			position += (player.position - position)/speed
@@ -63,3 +64,12 @@ func deal_with_damage():
 
 func _on_damage_cooldown_timeout() -> void:
 	can_take_damage = true
+
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	if health >= 40:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true

@@ -15,6 +15,7 @@ var current_dir = "none"
 func _physics_process(delta):
 	enemy_attack()
 	attack()
+	update_health()
 	if health <= 0:
 		player_alive = false #add end screen/death
 		health = 0
@@ -101,3 +102,22 @@ func attack():
 func _on_attack_timer_timeout() -> void:
 	$attack_timer.stop()
 	GlobalVariables.player_current_attack = false
+
+
+func update_health():
+	var healthbar = $healthbar
+	healthbar.value = health
+	if health >= 100:
+		healthbar.visible = false
+	else:
+		healthbar.visible = true
+	
+	
+	
+func _on_regen_timeout() -> void:
+	if health < 100:
+		health += 20
+		if health > 100:
+			health = 100
+	if health <= 0:
+		health = 0

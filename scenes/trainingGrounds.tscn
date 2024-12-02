@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://4g21p78ss3y0"]
+[gd_scene load_steps=7 format=3 uid="uid://4g21p78ss3y0"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_c1qw6"]
 [ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="2_17pr3"]
 [ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_xxwbc"]
+[ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="3_gn1gv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8a0h"]
 texture = ExtResource("1_c1qw6")
@@ -87,6 +88,27 @@ layer_0/tile_data = PackedInt32Array(65545, 0, 0, 196624, 131072, 2, 262161, 196
 position = Vector2(1008, -652)
 
 [node name="Camera2D" type="Camera2D" parent="Sheep"]
+zoom = Vector2(2.5, 2.5)
+limit_left = -64
+limit_top = -672
+limit_right = 2112
+limit_bottom = 864
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="pauseMenu" parent="Sheep/Camera2D" instance=ExtResource("3_gn1gv")]
+visible = false
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 0.5
+offset_top = 1.0
+offset_right = 0.5
+offset_bottom = 1.0
+scale = Vector2(0.5, 0.5)
 
 [node name="Snakes" type="Node" parent="."]
 
