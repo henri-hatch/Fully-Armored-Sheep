@@ -5,6 +5,7 @@ extends Node2D
 @onready var sheepAnim = $Sheep/AnimationPlayer
 @onready var fadeAnim = $FadeLayer/AnimationPlayer
 @onready var pauseMenu = $Sheep/Camera2D/menuLayer/pauseMenu
+@onready var gameOverMenu = $Sheep/Camera2D/menuLayer/gameOver
 
 
 func _ready():
@@ -13,6 +14,7 @@ func _ready():
 		GlobalVariables.coords = Vector2()
 		sheepAnim.play("up")
 	pauseMenu.hide()
+	gameOverMenu.hide()
 	fadeAnim.play("fadeIn")
 	if GlobalVariables.current_song != "fieldMusic":
 		MusicPlayer.play_song("fieldMusic")
@@ -24,5 +26,3 @@ func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		GlobalVariables.pause(pauseMenu)
 		
-func check_for_signal():
-	pass
