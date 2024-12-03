@@ -7,8 +7,8 @@
 [ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="3_3yby1"]
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="3_oymjp"]
 [ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="5_1ebpn"]
-[ext_resource type="Script" path="res://scripts/sceneTrigger.gd" id="9_f63nr"]
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_ormtv"]
+[ext_resource type="Script" path="res://scripts/sceneTriggers/moveToTrainingTrigger.gd" id="9_su3og"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="10_sdame"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pbt6q"]
@@ -206,7 +206,6 @@ limit_bottom = 608
 editor_draw_limits = true
 
 [node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
-visible = false
 
 [node name="pauseMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("10_sdame")]
 z_index = 1
@@ -244,14 +243,13 @@ position = Vector2(738, 618)
 shape = SubResource("RectangleShape2D_u0no0")
 
 [node name="sceneTrigger" type="Area2D" parent="CollisionShapes"]
-script = ExtResource("9_f63nr")
+script = ExtResource("9_su3og")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShapes/sceneTrigger"]
 position = Vector2(336.5, 618)
 shape = SubResource("RectangleShape2D_75157")
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
 position = Vector2(337, 220)

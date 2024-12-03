@@ -146,12 +146,13 @@ position = Vector2(1008, -652)
 
 [node name="Camera2D" type="Camera2D" parent="Sheep"]
 zoom = Vector2(2.5, 2.5)
-limit_left = -64
+limit_left = 128
 limit_top = -672
-limit_right = 2112
-limit_bottom = 864
+limit_right = 1888
+limit_bottom = 544
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+editor_draw_limits = true
 
 [node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
 
@@ -175,7 +176,6 @@ position = Vector2(1067, -70)
 position = Vector2(909, -33)
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
 position = Vector2(1104, -82.5)

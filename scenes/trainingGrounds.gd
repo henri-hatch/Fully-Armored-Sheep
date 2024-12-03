@@ -5,6 +5,7 @@ extends Node2D
 
 func _ready():
 	pauseMenu.hide()
+	fadeAnim.play("fadeIn")
 
 
 func _process(delta):
