@@ -233,3 +233,4 @@ position = Vector2(1008, -682)
 shape = SubResource("RectangleShape2D_dg8e5")
 
 [connection signal="body_entered" from="sceneTrigger" to="sceneTrigger" method="_on_body_entered"]
+[connection signal="fromTrainingGrounds" from="sceneTrigger" to="sceneTrigger" method="_on_from_training_grounds"]
