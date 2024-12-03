@@ -19,7 +19,8 @@ config/icon="res://icon.svg"
 
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 GlobalVariables="*res://scripts/globalVariables.gd"
-MusicPlayer="*res://scripts/musicPlayer.gd"
+MusicPlayer="*res://scenes/musicPlayer.tscn"
+SfxPlayer="*res://scenes/sfxPlayer.tscn"
 
 [dialogic]
 

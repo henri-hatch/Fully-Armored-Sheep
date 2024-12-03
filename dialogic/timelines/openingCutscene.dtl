@@ -1,5 +1,3 @@
-do MusicPlayer.stop_song()
-[music path="res://assets/music/8-bit-adventure.mp3" fade="0.0" volume="-1.0"]
 [background arg="res://addons/dialogic/Modules/Background/blackBackground.png" fade="0.0"]
 Shepherd: Little sheep, rise.
 [wait time="1.5"]
@@ -33,6 +31,5 @@ Shepherd: I will provide you with all that you need, so long as you listen to my
 Shepherd: Now go…
 Shepherd: and remember my words.
 [background arg="res://addons/dialogic/Modules/Background/blackBackground.png" fade="2.5"]
-[clear time="2.5" text="false" portraits="false" background="false" positions="false" style="false"]
 [wait time="2.5"]
 do GlobalVariables.startGame()

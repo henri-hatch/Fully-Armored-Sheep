@@ -5,6 +5,9 @@ extends Node2D
 
 func _ready():
 	pauseMenu.hide()
+	fadeAnim.play("fadeIn")
+	if GlobalVariables.current_song != "fieldMusic":
+		MusicPlayer.play_song("fieldMusic")
 
 
 func _process(delta):
