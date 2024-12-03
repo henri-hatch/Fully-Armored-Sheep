@@ -2,10 +2,11 @@ extends Control
 
 
 func _ready():
-	MusicPlayer.play_song("res://assets/music/8-bit-main-menu.mp3")
+	MusicPlayer.play_song("mainMenuMusic")
 
 
 func _on_play_pressed():
+	MusicPlayer.play_song("openingCutsceneMusic")
 	Dialogic.start("openingCutscene")
 
 

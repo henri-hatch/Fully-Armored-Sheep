@@ -9,7 +9,7 @@ extends Node2D
 func _ready():
 	pauseMenu.hide()
 	fadeAnim.play("fadeIn")
-	MusicPlayer.play_song("res://assets/music/8-bit-field.mp3")
+	MusicPlayer.play_song("fieldMusic")
 	GlobalVariables.player_can_move = true
 	GlobalVariables.characters_can_move = true
 	shepherdAnim.play("idle")
