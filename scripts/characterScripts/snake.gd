@@ -6,6 +6,8 @@ var player = null
 var health = 40
 var player_inattack_zone = false
 var can_take_damage = true
+
+
 func _physics_process(delta):
 	deal_with_damage()
 	update_health()
@@ -27,6 +29,8 @@ func _physics_process(delta):
 					$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.play("RightIdle")
+
+
 func _on_detection_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	player=body
 	player_chase=true
@@ -48,8 +52,8 @@ func _on_enemy_hitbox_body_entered(body: Node2D):
 func _on_enemy_hitbox_body_exited(body: Node2D):
 	if body.has_method("player"):
 		player_inattack_zone = false
-		
-		
+
+
 func deal_with_damage():
 	if player_inattack_zone and GlobalVariables.player_current_attack == true:
 		if can_take_damage == true:
