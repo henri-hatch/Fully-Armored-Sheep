@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://4g21p78ss3y0"]
+[gd_scene load_steps=20 format=4 uid="uid://4g21p78ss3y0"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_c1qw6"]
 [ext_resource type="Script" path="res://scripts/trainingGrounds.gd" id="1_r54w6"]
 [ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="2_17pr3"]
 [ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_xxwbc"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="3_gn1gv"]
+[ext_resource type="PackedScene" uid="uid://c4a4rxh0vj8ws" path="res://scenes/menus/pauseOptionsMenu.tscn" id="5_432iq"]
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="6_82qkq"]
 [ext_resource type="Script" path="res://scripts/sceneTriggers/moveToFieldTrigger.gd" id="7_af4ij"]
 
@@ -179,6 +180,8 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
+
+[node name="pauseOptionsMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("5_432iq")]
 
 [node name="Snakes" type="Node" parent="."]
 

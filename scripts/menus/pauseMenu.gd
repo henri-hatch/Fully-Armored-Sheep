@@ -14,7 +14,7 @@ func _on_resume_pressed():
 
 
 func _on_options_pressed():
-	pass # Replace with function body.
+	GlobalVariables.pauseOptionsPressed.emit()
 
 
 func _on_quit_pressed():

@@ -12,6 +12,9 @@ var current_scene = ""
 var openingCutscenePlayed = false
 var coords = Vector2()
 
+signal pauseOptionsPressed
+signal pauseOptionsBackPressed
+
 
 func startGame():
 	if openingCutscenePlayed == false:

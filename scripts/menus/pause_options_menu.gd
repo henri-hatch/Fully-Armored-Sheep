@@ -38,4 +38,4 @@ func _on_sfx_slider_mouse_exited():
 
 
 func _on_back_pressed():
-	pass
+	GlobalVariables.pauseOptionsBackPressed.emit()
