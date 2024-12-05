@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="2_17pr3"]
 [ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_xxwbc"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="3_gn1gv"]
-[ext_resource type="PackedScene" uid="uid://c4a4rxh0vj8ws" path="res://scenes/menus/pauseOptionsMenu.tscn" id="5_432iq"]
+[ext_resource type="PackedScene" path="res://scenes/menus/pauseOptionsMenu.tscn" id="5_432iq"]
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="6_82qkq"]
 [ext_resource type="Script" path="res://scripts/sceneTriggers/moveToFieldTrigger.gd" id="7_af4ij"]
 
