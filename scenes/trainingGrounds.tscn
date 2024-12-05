@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=4 uid="uid://4g21p78ss3y0"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_c1qw6"]
-[ext_resource type="Script" path="res://scenes/trainingGrounds.gd" id="1_r54w6"]
+[ext_resource type="Script" path="res://scripts/trainingGrounds.gd" id="1_r54w6"]
 [ext_resource type="PackedScene" uid="uid://dhtk3gwwie6or" path="res://scenes/characters/snake.tscn" id="2_17pr3"]
 [ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_xxwbc"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="3_gn1gv"]

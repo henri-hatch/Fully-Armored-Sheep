@@ -2,7 +2,10 @@ extends Control
 
 
 func _ready():
-	MusicPlayer.play_song("mainMenuMusic")
+	GlobalVariables.current_scene = get_tree().current_scene.scene_file_path
+	if GlobalVariables.current_song != "mainMenuMusic":
+		MusicPlayer.play_song("mainMenuMusic")
+		GlobalVariables.current_song == "mainMenuMusic"
 
 
 func _on_play_pressed():
@@ -11,7 +14,7 @@ func _on_play_pressed():
 
 
 func _on_options_pressed():
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/menus/optionsMenu.tscn")
 
 
 func _on_quit_pressed():

@@ -4,6 +4,7 @@ extends Node2D
 @onready var fadeAnim = $FadeLayer/AnimationPlayer
 
 func _ready():
+	GlobalVariables.current_scene = get_tree().current_scene.scene_file_path
 	pauseMenu.hide()
 	fadeAnim.play("fadeIn")
 	if GlobalVariables.current_song != "fieldMusic":
