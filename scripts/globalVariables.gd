@@ -1,5 +1,6 @@
 extends Node
 
+
 var player_alive = true
 var player_can_move = false
 var characters_can_move = false
@@ -11,7 +12,6 @@ var current_scene = ""
 var openingCutscenePlayed = false
 var coords = Vector2()
 
-signal resume
 
 func startGame():
 	if openingCutscenePlayed == false:
@@ -50,7 +50,3 @@ func respawn():
 	characters_can_move = true
 	Engine.time_scale = 1
 	coords = Vector2()
-
-
-func _process(delta):
-	pass

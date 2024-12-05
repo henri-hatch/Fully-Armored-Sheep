@@ -20,7 +20,8 @@ func _ready():
 	GlobalVariables.player_can_move = true
 	GlobalVariables.characters_can_move = true
 	shepherdAnim.play("idle")
-	
+
+
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		GlobalVariables.pause(pauseMenu)
