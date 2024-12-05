@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scripts/characterScripts/shepherd.gd" id="3_3yby1"]
 [ext_resource type="Texture2D" uid="uid://bn6onvggh1p6k" path="res://assets/sprites/world/fence/Fence-Side.png" id="3_oymjp"]
 [ext_resource type="PackedScene" uid="uid://73r6g6mm04gf" path="res://scenes/characters/shepherd.tscn" id="5_1ebpn"]
-[ext_resource type="PackedScene" path="res://scenes/menus/pauseOptionsMenu.tscn" id="7_aku3i"]
+[ext_resource type="PackedScene" uid="uid://c4a4rxh0vj8ws" path="res://scenes/menus/pauseOptionsMenu.tscn" id="7_aku3i"]
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_ormtv"]
 [ext_resource type="Script" path="res://scripts/sceneTriggers/moveToTrainingTrigger.gd" id="9_su3og"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="10_sdame"]
