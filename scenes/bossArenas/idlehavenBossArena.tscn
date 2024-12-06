@@ -669,6 +669,21 @@ size = Vector2(20, 325)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng8e4"]
 size = Vector2(20, 32)
 
+[sub_resource type="Animation" id="Animation_6iccb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_kyoeu"]
 resource_name = "fadeIn"
 length = 1.5
@@ -683,21 +698,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_6iccb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_dcd6r"]
@@ -751,13 +751,15 @@ limit_bottom = 776
 editor_draw_limits = true
 
 [node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
+visible = false
 
 [node name="pauseMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("4_ku5fh")]
 
 [node name="pauseOptionsMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("5_pujfj")]
 
 [node name="Sloth" parent="." instance=ExtResource("2_wdsr1")]
-position = Vector2(384, 474)
+position = Vector2(293, 444)
+scale = Vector2(1.25, 1.25)
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
 
@@ -835,6 +837,7 @@ position = Vector2(313, 159)
 position = Vector2(777, 154)
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
 position = Vector2(568, 362)
