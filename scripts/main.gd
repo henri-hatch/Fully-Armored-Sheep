@@ -12,6 +12,8 @@ func _ready():
 	GlobalVariables.current_scene = get_tree().current_scene.scene_file_path
 	GlobalVariables.pauseOptionsPressed.connect(openPauseOptions)
 	GlobalVariables.pauseOptionsBackPressed.connect(closePauseOptions)
+	GlobalVariables.player_can_move = true
+	GlobalVariables.characters_can_move = true
 	if GlobalVariables.coords != Vector2():
 		sheep.position = GlobalVariables.coords
 		GlobalVariables.coords = Vector2()
@@ -21,8 +23,6 @@ func _ready():
 	fadeAnim.play("fadeIn")
 	if GlobalVariables.current_song != "fieldMusic":
 		MusicPlayer.play_song("fieldMusic")
-	GlobalVariables.player_can_move = true
-	GlobalVariables.characters_can_move = true
 	shepherdAnim.play("idle")
 
 

@@ -10,6 +10,8 @@ func _ready():
 	GlobalVariables.current_scene = get_tree().current_scene.scene_file_path
 	GlobalVariables.pauseOptionsPressed.connect(openPauseOptions)
 	GlobalVariables.pauseOptionsBackPressed.connect(closePauseOptions)
+	GlobalVariables.player_can_move = true
+	GlobalVariables.characters_can_move = true
 	pauseMenu.hide()
 	pauseOptionsMenu.hide()
 	sheepAnim.play("right")
