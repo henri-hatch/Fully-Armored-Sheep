@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://dcwfpc7e45wt"]
+[gd_scene load_steps=24 format=4 uid="uid://dcwfpc7e45wt"]
 
 [ext_resource type="Script" path="res://scripts/bossArenas/idlehavenBossArena.gd" id="1_4vrj5"]
 [ext_resource type="Texture2D" uid="uid://b3qkxkun82wo3" path="res://assets/sprites/world/TX Tileset Wall.png" id="1_vlmno"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="4_ku5fh"]
 [ext_resource type="PackedScene" uid="uid://c4a4rxh0vj8ws" path="res://scenes/menus/pauseOptionsMenu.tscn" id="5_pujfj"]
 [ext_resource type="PackedScene" uid="uid://dhgrwy0lwqwns" path="res://scenes/characters/idlehavenSheep.tscn" id="8_1exv4"]
+[ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_lgao0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfql7"]
 texture = ExtResource("1_vlmno")
@@ -668,6 +669,60 @@ size = Vector2(20, 325)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng8e4"]
 size = Vector2(20, 32)
 
+[sub_resource type="Animation" id="Animation_kyoeu"]
+resource_name = "fadeIn"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6iccb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_dcd6r"]
+resource_name = "fadeOut"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4khp3"]
+_data = {
+"RESET": SubResource("Animation_6iccb"),
+"fadeIn": SubResource("Animation_kyoeu"),
+"fadeOut": SubResource("Animation_dcd6r")
+}
+
 [node name="Game" type="Node2D"]
 script = ExtResource("1_4vrj5")
 
@@ -696,7 +751,6 @@ limit_bottom = 776
 editor_draw_limits = true
 
 [node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
-visible = false
 
 [node name="pauseMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("4_ku5fh")]
 
@@ -779,3 +833,15 @@ position = Vector2(313, 159)
 
 [node name="IdlehavenSheep13" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
 position = Vector2(777, 154)
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
+position = Vector2(568, 362)
+scale = Vector2(54.3125, 36.3125)
+texture = ExtResource("9_lgao0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer"]
+libraries = {
+"": SubResource("AnimationLibrary_4khp3")
+}

@@ -61,6 +61,7 @@ text/input_action="dialogic_input_action"
 
 window/size/mode=3
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="res://assets/themes/Cursor.png"
 
 [editor]
 

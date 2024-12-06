@@ -1,11 +1,11 @@
 extends Node2D
 
 @onready var sheepAnim = $Sheep/AnimationPlayer
+@onready var fadeAnim = $FadeLayer/AnimationPlayer
 @onready var pauseMenu = $Sheep/Camera2D/menuLayer/pauseMenu
 @onready var pauseOptionsMenu = $Sheep/Camera2D/menuLayer/pauseOptionsMenu
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	GlobalVariables.current_scene = get_tree().current_scene.scene_file_path
 	GlobalVariables.pauseOptionsPressed.connect(openPauseOptions)
@@ -14,6 +14,7 @@ func _ready():
 	GlobalVariables.characters_can_move = true
 	pauseMenu.hide()
 	pauseOptionsMenu.hide()
+	fadeAnim.play("fadeIn")
 	sheepAnim.play("right")
 	if GlobalVariables.current_song != "bossMusic":
 		MusicPlayer.play_song("bossMusic")
