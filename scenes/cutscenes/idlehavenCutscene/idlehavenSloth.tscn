@@ -1,17 +1,12 @@
-[gd_scene load_steps=24 format=4 uid="uid://dcwfpc7e45wt"]
+[gd_scene load_steps=15 format=4 uid="uid://bvimnnsfa84vd"]
 
-[ext_resource type="Script" path="res://scripts/bossArenas/idlehavenBossArena.gd" id="1_4vrj5"]
-[ext_resource type="Texture2D" uid="uid://b3qkxkun82wo3" path="res://assets/sprites/world/TX Tileset Wall.png" id="1_vlmno"]
-[ext_resource type="PackedScene" uid="uid://ctdidc2767oli" path="res://scenes/characters/sheep.tscn" id="2_lknqd"]
-[ext_resource type="PackedScene" uid="uid://c1ev848fj50yh" path="res://scenes/characters/sins/sloth.tscn" id="2_wdsr1"]
-[ext_resource type="Texture2D" uid="uid://boinuo3hoodv" path="res://assets/sprites/world/TX Tileset Stone Ground.png" id="3_br502"]
-[ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="4_ku5fh"]
-[ext_resource type="PackedScene" uid="uid://c4a4rxh0vj8ws" path="res://scenes/menus/pauseOptionsMenu.tscn" id="5_pujfj"]
-[ext_resource type="PackedScene" uid="uid://dhgrwy0lwqwns" path="res://scenes/characters/idlehaven/idlehavenSheep.tscn" id="8_1exv4"]
-[ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_lgao0"]
+[ext_resource type="Script" path="res://scripts/cutscenes/idlehavenCutscene/idlehaven_sloth.gd" id="1_8ls6y"]
+[ext_resource type="Texture2D" uid="uid://b3qkxkun82wo3" path="res://assets/sprites/world/TX Tileset Wall.png" id="2_jjkcj"]
+[ext_resource type="Texture2D" uid="uid://boinuo3hoodv" path="res://assets/sprites/world/TX Tileset Stone Ground.png" id="3_p7joj"]
+[ext_resource type="PackedScene" uid="uid://c1ev848fj50yh" path="res://scenes/characters/sins/sloth.tscn" id="7_6bjv7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfql7"]
-texture = ExtResource("1_vlmno")
+texture = ExtResource("2_jjkcj")
 2:20/0 = 0
 2:19/0 = 0
 2:18/0 = 0
@@ -209,7 +204,7 @@ texture = ExtResource("1_vlmno")
 sources/0 = SubResource("TileSetAtlasSource_sfql7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2te7v"]
-texture = ExtResource("3_br502")
+texture = ExtResource("3_p7joj")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -267,7 +262,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_2te7v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0fjc"]
-texture = ExtResource("1_vlmno")
+texture = ExtResource("2_jjkcj")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, 0, 0, 0, 8, -8, 8)
 3:2/0 = 0
@@ -669,62 +664,8 @@ size = Vector2(20, 325)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ng8e4"]
 size = Vector2(20, 32)
 
-[sub_resource type="Animation" id="Animation_6iccb"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_kyoeu"]
-resource_name = "fadeIn"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_dcd6r"]
-resource_name = "fadeOut"
-length = 1.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_4khp3"]
-_data = {
-"RESET": SubResource("Animation_6iccb"),
-"fadeIn": SubResource("Animation_kyoeu"),
-"fadeOut": SubResource("Animation_dcd6r")
-}
-
 [node name="Game" type="Node2D"]
-script = ExtResource("1_4vrj5")
+script = ExtResource("1_8ls6y")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -739,25 +680,18 @@ tile_set = SubResource("TileSet_vlw42")
 tile_map_data = PackedByteArray("AAADAAoAAQAMAAwAAAADAAsAAQAMAA0AAAADAAwAAQAMAA4AAAADAA0AAQAMAA8AAAAIAAoAAQAMAAwAAAAIAAsAAQAMAA0AAAAIAAwAAQAMAA4AAAAIAA0AAQAMAA8AAAAJAAoAAQANAAwAAAAJAAsAAQANAA0AAAAJAAwAAQANAA4AAAAJAA0AAQANAA8AAAAKAAoAAQACAAwAAAAKAAsAAQACAA0AAAAKAAwAAQACAA4AAAAKAA0AAQACAA8AAAALAAoAAQADAAwAAAALAAsAAQADAA0AAAALAAwAAQADAA4AAAALAA0AAQADAA8AAAAMAAoAAQAEAAwAAAAMAAsAAQAEAA0AAAAMAAwAAQAEAA4AAAAMAA0AAQAEAA8AAAANAAoAAQAMAAwAAAANAAsAAQAMAA0AAAANAAwAAQAMAA4AAAANAA0AAQAMAA8AAAAOAAoAAQANAAwAAAAOAAsAAQANAA0AAAAOAAwAAQANAA4AAAAOAA0AAQANAA8AAAAOAAYAAQAGAAIAAAAKAAYAAQAEAAIAAAALAAYAAQADAAIAAAAMAAYAAQAEAAIAAAANAAYAAQAFAAIAAAAIAAYAAQAEAAIAAAAJAAYAAQADAAIAAAAFAAYAAQADAAIAAAAGAAYAAQAEAAIAAAAHAAYAAQADAAIAAAADAAYAAQADAAIAAAAEAAYAAQAEAAIAAAACAAYAAQACAAIAAAAEAAoAAQANAAwAAAAEAAsAAQANAA0AAAAEAAwAAQANAA4AAAAEAA0AAQANAA8AAAACAAcAAQACAAMAAAACAAgAAQACAAQAAAACAAkAAQACAAUAAAACAAoAAQACAAYAAAACAAsAAQACAAcAAAACAAwAAQACAAgAAAACAA0AAQACAAkAAAAFAAoAAQAEAAwAAAAFAAsAAQAEAA0AAAAFAAwAAQAEAA4AAAAFAA0AAQAEAA8AAAAGAAoAAQAFAAwAAAAGAAsAAQAFAA0AAAAGAAwAAQAFAA4AAAAGAA0AAQAFAA8AAAAHAAoAAQAGAAwAAAAHAAsAAQAGAA0AAAAHAAwAAQAGAA4AAAAHAA0AAQAGAA8AAAAPAAYAAQAHAAIAAAAPAAcAAQAHAAMAAAAPAAgAAQAHAAQAAAAPAAkAAQAHAAUAAAAPAAoAAQAHAAYAAAAPAAsAAQAHAAcAAAAPAAwAAQAHAAgAAAAPAA0AAQAHAAkAAAAbABYAAQACAAIAAAAbABoAAQACAAYAAAAbABsAAQACAAcAAAAbABwAAQACAAgAAAAbAB0AAQACAAkAAAAcABYAAQADAAIAAAAcABoAAQAMAAwAAAAcABsAAQAMAA0AAAAcABwAAQAMAA4AAAAcAB0AAQAMAA8AAAAdABYAAQAEAAIAAAAdABoAAQANAAwAAAAdABsAAQANAA0AAAAdABwAAQANAA4AAAAdAB0AAQANAA8AAAAeABYAAQADAAIAAAAeABoAAQAEAAwAAAAeABsAAQAEAA0AAAAeABwAAQAEAA4AAAAeAB0AAQAEAA8AAAAfABYAAQAEAAIAAAAfABoAAQAFAAwAAAAfABsAAQAFAA0AAAAfABwAAQAFAA4AAAAfAB0AAQAFAA8AAAAgABYAAQADAAIAAAAgABoAAQAGAAwAAAAgABsAAQAGAA0AAAAgABwAAQAGAA4AAAAgAB0AAQAGAA8AAAAhABYAAQAEAAIAAAAhABoAAQAMAAwAAAAhABsAAQAMAA0AAAAhABwAAQAMAA4AAAAhAB0AAQAMAA8AAAAiABYAAQADAAIAAAAiABoAAQANAAwAAAAiABsAAQANAA0AAAAiABwAAQANAA4AAAAiAB0AAQANAA8AAAAjABYAAQAEAAIAAAAjABoAAQACAAwAAAAjABsAAQACAA0AAAAjABwAAQACAA4AAAAjAB0AAQACAA8AAAAkABYAAQADAAIAAAAkABoAAQADAAwAAAAkABsAAQADAA0AAAAkABwAAQADAA4AAAAkAB0AAQADAA8AAAAlABYAAQAEAAIAAAAlABoAAQAEAAwAAAAlABsAAQAEAA0AAAAlABwAAQAEAA4AAAAlAB0AAQAEAA8AAAAmABYAAQAFAAIAAAAmABoAAQAMAAwAAAAmABsAAQAMAA0AAAAmABwAAQAMAA4AAAAmAB0AAQAMAA8AAAAnABYAAQAGAAIAAAAnABoAAQANAAwAAAAnABsAAQANAA0AAAAnABwAAQANAA4AAAAnAB0AAQANAA8AAAAzAAYAAQACAAIAAAAzAAcAAQACAAMAAAAzAAgAAQACAAQAAAAzAAkAAQACAAUAAAAzAAoAAQACAAYAAAAzAAsAAQACAAcAAAAzAAwAAQACAAgAAAAzAA0AAQACAAkAAAA0AAYAAQADAAIAAAA0AAoAAQAMAAwAAAA0AAsAAQAMAA0AAAA0AAwAAQAMAA4AAAA0AA0AAQAMAA8AAAA1AAYAAQAEAAIAAAA1AAoAAQANAAwAAAA1AAsAAQANAA0AAAA1AAwAAQANAA4AAAA1AA0AAQANAA8AAAA2AAYAAQADAAIAAAA2AAoAAQAEAAwAAAA2AAsAAQAEAA0AAAA2AAwAAQAEAA4AAAA2AA0AAQAEAA8AAAA3AAYAAQAEAAIAAAA3AAoAAQAFAAwAAAA3AAsAAQAFAA0AAAA3AAwAAQAFAA4AAAA3AA0AAQAFAA8AAAA4AAYAAQADAAIAAAA4AAoAAQAGAAwAAAA4AAsAAQAGAA0AAAA4AAwAAQAGAA4AAAA4AA0AAQAGAA8AAAA5AAYAAQAEAAIAAAA5AAoAAQAMAAwAAAA5AAsAAQAMAA0AAAA5AAwAAQAMAA4AAAA5AA0AAQAMAA8AAAA6AAYAAQADAAIAAAA6AAoAAQANAAwAAAA6AAsAAQANAA0AAAA6AAwAAQANAA4AAAA6AA0AAQANAA8AAAA7AAYAAQAEAAIAAAA7AAoAAQACAAwAAAA7AAsAAQACAA0AAAA7AAwAAQACAA4AAAA7AA0AAQACAA8AAAA8AAYAAQADAAIAAAA8AAoAAQADAAwAAAA8AAsAAQADAA0AAAA8AAwAAQADAA4AAAA8AA0AAQADAA8AAAA9AAYAAQAEAAIAAAA9AAoAAQAEAAwAAAA9AAsAAQAEAA0AAAA9AAwAAQAEAA4AAAA9AA0AAQAEAA8AAAA+AAYAAQAFAAIAAAA+AAoAAQAMAAwAAAA+AAsAAQAMAA0AAAA+AAwAAQAMAA4AAAA+AA0AAQAMAA8AAAA/AAYAAQAGAAIAAAA/AAoAAQANAAwAAAA/AAsAAQANAA0AAAA/AAwAAQANAA4AAAA/AA0AAQANAA8AAABAAAYAAQAHAAIAAABAAAcAAQAHAAMAAABAAAgAAQAHAAQAAABAAAkAAQAHAAUAAABAAAoAAQAHAAYAAABAAAsAAQAHAAcAAABAAAwAAQAHAAgAAABAAA0AAQAHAAkAAAACACgAAQACAAIAAAACACkAAQACAAMAAAACACoAAQACAAQAAAACACsAAQACAAUAAAACACwAAQACAAYAAAACAC0AAQACAAcAAAACAC4AAQACAAgAAAACAC8AAQACAAkAAAADACgAAQADAAIAAAADACwAAQAMAAwAAAADAC0AAQAMAA0AAAADAC4AAQAMAA4AAAADAC8AAQAMAA8AAAAEACgAAQAEAAIAAAAEACwAAQANAAwAAAAEAC0AAQANAA0AAAAEAC4AAQANAA4AAAAEAC8AAQANAA8AAAAFACgAAQADAAIAAAAFACwAAQAEAAwAAAAFAC0AAQAEAA0AAAAFAC4AAQAEAA4AAAAFAC8AAQAEAA8AAAAGACgAAQAEAAIAAAAGACwAAQAFAAwAAAAGAC0AAQAFAA0AAAAGAC4AAQAFAA4AAAAGAC8AAQAFAA8AAAAHACgAAQADAAIAAAAHACwAAQAGAAwAAAAHAC0AAQAGAA0AAAAHAC4AAQAGAA4AAAAHAC8AAQAGAA8AAAAIACgAAQAEAAIAAAAIACwAAQAMAAwAAAAIAC0AAQAMAA0AAAAIAC4AAQAMAA4AAAAIAC8AAQAMAA8AAAAJACgAAQADAAIAAAAJACwAAQANAAwAAAAJAC0AAQANAA0AAAAJAC4AAQANAA4AAAAJAC8AAQANAA8AAAAKACgAAQAEAAIAAAAKACwAAQACAAwAAAAKAC0AAQACAA0AAAAKAC4AAQACAA4AAAAKAC8AAQACAA8AAAALACgAAQADAAIAAAALACwAAQADAAwAAAALAC0AAQADAA0AAAALAC4AAQADAA4AAAALAC8AAQADAA8AAAAMACgAAQAEAAIAAAAMACwAAQAEAAwAAAAMAC0AAQAEAA0AAAAMAC4AAQAEAA4AAAAMAC8AAQAEAA8AAAANACgAAQAFAAIAAAANACwAAQAMAAwAAAANAC0AAQAMAA0AAAANAC4AAQAMAA4AAAANAC8AAQAMAA8AAAAOACgAAQAGAAIAAAAOACwAAQANAAwAAAAOAC0AAQANAA0AAAAOAC4AAQANAA4AAAAOAC8AAQANAA8AAAAPACgAAQAHAAIAAAAPACkAAQAHAAMAAAAPACoAAQAHAAQAAAAPACsAAQAHAAUAAAAPACwAAQAHAAYAAAAPAC0AAQAHAAcAAAAPAC4AAQAHAAgAAAAPAC8AAQAHAAkAAAAzACgAAQACAAIAAAAzACkAAQACAAMAAAAzACoAAQACAAQAAAAzACsAAQACAAUAAAAzACwAAQACAAYAAAAzAC0AAQACAAcAAAAzAC4AAQACAAgAAAAzAC8AAQACAAkAAAA0ACgAAQADAAIAAAA0ACwAAQAMAAwAAAA0AC0AAQAMAA0AAAA0AC4AAQAMAA4AAAA0AC8AAQAMAA8AAAA1ACgAAQAEAAIAAAA1ACwAAQANAAwAAAA1AC0AAQANAA0AAAA1AC4AAQANAA4AAAA1AC8AAQANAA8AAAA2ACgAAQADAAIAAAA2ACwAAQAEAAwAAAA2AC0AAQAEAA0AAAA2AC4AAQAEAA4AAAA2AC8AAQAEAA8AAAA3ACgAAQAEAAIAAAA3ACwAAQAFAAwAAAA3AC0AAQAFAA0AAAA3AC4AAQAFAA4AAAA3AC8AAQAFAA8AAAA4ACgAAQADAAIAAAA4ACwAAQAGAAwAAAA4AC0AAQAGAA0AAAA4AC4AAQAGAA4AAAA4AC8AAQAGAA8AAAA5ACgAAQAEAAIAAAA5ACwAAQAMAAwAAAA5AC0AAQAMAA0AAAA5AC4AAQAMAA4AAAA5AC8AAQAMAA8AAAA6ACgAAQADAAIAAAA6ACwAAQANAAwAAAA6AC0AAQANAA0AAAA6AC4AAQANAA4AAAA6AC8AAQANAA8AAAA7ACgAAQAEAAIAAAA7ACwAAQACAAwAAAA7AC0AAQACAA0AAAA7AC4AAQACAA4AAAA7AC8AAQACAA8AAAA8ACgAAQADAAIAAAA8ACwAAQADAAwAAAA8AC0AAQADAA0AAAA8AC4AAQADAA4AAAA8AC8AAQADAA8AAAA9ACgAAQAEAAIAAAA9ACwAAQAEAAwAAAA9AC0AAQAEAA0AAAA9AC4AAQAEAA4AAAA9AC8AAQAEAA8AAAA+ACgAAQAFAAIAAAA+ACwAAQAMAAwAAAA+AC0AAQAMAA0AAAA+AC4AAQAMAA4AAAA+AC8AAQAMAA8AAAA/ACgAAQAGAAIAAAA/ACwAAQANAAwAAAA/AC0AAQANAA0AAAA/AC4AAQANAA4AAAA/AC8AAQANAA8AAABAACgAAQAHAAIAAABAACkAAQAHAAMAAABAACoAAQAHAAQAAABAACsAAQAHAAUAAABAACwAAQAHAAYAAABAAC0AAQAHAAcAAABAAC4AAQAHAAgAAABAAC8AAQAHAAkAAAAbABcAAQACAAMAAAAbABgAAQACAAQAAAAbABkAAQACAAUAAAAoABYAAQAHAAIAAAAoABcAAQAHAAMAAAAoABgAAQAHAAQAAAAoABkAAQAHAAUAAAAoABoAAQAHAAYAAAAoABsAAQAHAAcAAAAoABwAAQAHAAgAAAAoAB0AAQAHAAkAAAA=")
 tile_set = SubResource("TileSet_fuwia")
 
-[node name="Sheep" parent="." instance=ExtResource("2_lknqd")]
+[node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(37, 439)
-
-[node name="Camera2D" type="Camera2D" parent="Sheep"]
-zoom = Vector2(2.5, 2.5)
+offset = Vector2(90, -32)
+zoom = Vector2(3, 3)
 limit_left = 24
 limit_top = 96
 limit_right = 1048
 limit_bottom = 776
 editor_draw_limits = true
 
-[node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
-
-[node name="pauseMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("4_ku5fh")]
-
-[node name="pauseOptionsMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("5_pujfj")]
-
-[node name="Sloth" parent="." instance=ExtResource("2_wdsr1")]
-position = Vector2(293, 444)
+[node name="Sloth" parent="." instance=ExtResource("7_6bjv7")]
+position = Vector2(286, 439)
 scale = Vector2(1.25, 1.25)
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
@@ -793,56 +727,3 @@ shape = SubResource("RectangleShape2D_ng8e4")
 [node name="RightRoadLimit" type="CollisionShape2D" parent="CollisionShapes"]
 position = Vector2(1058, 432)
 shape = SubResource("RectangleShape2D_ng8e4")
-
-[node name="IdlehavenSheep" type="Node" parent="."]
-
-[node name="IdlehavenSheep" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(168, 146)
-
-[node name="IdlehavenSheep2" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(895, 241)
-
-[node name="IdlehavenSheep3" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(949, 249)
-
-[node name="IdlehavenSheep4" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(791, 698)
-
-[node name="IdlehavenSheep5" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(763, 737)
-
-[node name="IdlehavenSheep6" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(953, 682)
-
-[node name="IdlehavenSheep7" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(68, 694)
-
-[node name="IdlehavenSheep8" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(97, 680)
-
-[node name="IdlehavenSheep9" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(72, 250)
-
-[node name="IdlehavenSheep10" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(327, 750)
-
-[node name="IdlehavenSheep11" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(371, 143)
-
-[node name="IdlehavenSheep12" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(313, 159)
-
-[node name="IdlehavenSheep13" parent="IdlehavenSheep" instance=ExtResource("8_1exv4")]
-position = Vector2(777, 154)
-
-[node name="FadeLayer" type="CanvasLayer" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
-position = Vector2(568, 362)
-scale = Vector2(54.3125, 36.3125)
-texture = ExtResource("9_lgao0")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="FadeLayer"]
-libraries = {
-"": SubResource("AnimationLibrary_4khp3")
-}

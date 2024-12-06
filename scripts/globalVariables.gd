@@ -10,6 +10,7 @@ var exiting_scene = false
 var current_song = ""
 var current_scene = ""
 var openingCutscenePlayed = false
+var idlehavenCutscenePlayed = false
 var coords = Vector2()
 
 signal pauseOptionsPressed
@@ -20,7 +21,13 @@ func startGame():
 	if openingCutscenePlayed == false:
 		openingCutscenePlayed = true
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
-	
+
+
+func startSlothGluttonyBattle():
+	if idlehavenCutscenePlayed == false:
+		idlehavenCutscenePlayed = true
+	get_tree().change_scene_to_file("res://scenes/bossArenas/idlehavenBossArena.tscn")
+
 
 func pause(menu_path):
 	if paused:
