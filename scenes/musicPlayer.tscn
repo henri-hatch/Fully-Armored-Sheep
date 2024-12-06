@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://c5umsw65aavh2"]
+[gd_scene load_steps=9 format=3 uid="uid://c5umsw65aavh2"]
 
 [ext_resource type="Script" path="res://scripts/music_player.gd" id="1_k0epa"]
-[ext_resource type="AudioStream" uid="uid://dv71kjq03ar0b" path="res://assets/music/8-bit-main-menu.mp3" id="1_pm7w5"]
-[ext_resource type="AudioStream" uid="uid://b6qi1xcxip7ur" path="res://assets/music/8-bit-field.mp3" id="2_ed5wm"]
-[ext_resource type="AudioStream" uid="uid://bdf6bmboukh6b" path="res://assets/music/8-bit-adventure.mp3" id="3_wkns0"]
-[ext_resource type="AudioStream" uid="uid://bsh6dhmywxpfk" path="res://assets/music/8-bit-dungeon.mp3" id="4_ownud"]
+[ext_resource type="AudioStream" uid="uid://dv71kjq03ar0b" path="res://assets/music/main_menu.mp3" id="1_pm7w5"]
+[ext_resource type="AudioStream" uid="uid://b6qi1xcxip7ur" path="res://assets/music/field.mp3" id="2_ed5wm"]
+[ext_resource type="AudioStream" uid="uid://bdf6bmboukh6b" path="res://assets/music/opening_cutscene.mp3" id="3_wkns0"]
+[ext_resource type="AudioStream" uid="uid://bsh6dhmywxpfk" path="res://assets/music/idlehaven_battle.mp3" id="4_ownud"]
 [ext_resource type="AudioStream" uid="uid://bvno65tk00o1" path="res://assets/music/game_over.mp3" id="6_x6dno"]
+[ext_resource type="AudioStream" uid="uid://br1umjenljco2" path="res://assets/music/idlehaven.mp3" id="7_af0f1"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_o4cb6"]
-clip_count = 5
+clip_count = 6
 clip_0/name = &"mainMenuMusic"
 clip_0/stream = ExtResource("1_pm7w5")
 clip_0/auto_advance = 0
@@ -18,12 +19,15 @@ clip_1/auto_advance = 0
 clip_2/name = &"openingCutsceneMusic"
 clip_2/stream = ExtResource("3_wkns0")
 clip_2/auto_advance = 0
-clip_3/name = &"bossMusic"
+clip_3/name = &"idlehavenBattleMusic"
 clip_3/stream = ExtResource("4_ownud")
 clip_3/auto_advance = 0
 clip_4/name = &"gameOver"
 clip_4/stream = ExtResource("6_x6dno")
 clip_4/auto_advance = 0
+clip_5/name = &"idlehavenMusic"
+clip_5/stream = ExtResource("7_af0f1")
+clip_5/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1,

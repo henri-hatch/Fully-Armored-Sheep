@@ -4,5 +4,8 @@ extends DialogicBackground
 
 func _ready():
 	slothAnim.play("wakingRight")
-	await get_tree().create_timer(3).timeout
-	slothAnim.stop()
+	SfxPlayer.slothSnore()
+	await get_tree().create_timer(1).timeout
+	SfxPlayer.slothGrunt()
+	await get_tree().create_timer(1.75).timeout
+	slothAnim.play("idleRight")

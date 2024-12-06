@@ -16,8 +16,8 @@ func _ready():
 	pauseOptionsMenu.hide()
 	fadeAnim.play("fadeIn")
 	sheepAnim.play("right")
-	if GlobalVariables.current_song != "bossMusic":
-		MusicPlayer.play_song("bossMusic")
+	if GlobalVariables.current_song != "idlehavenBattleMusic":
+		MusicPlayer.play_song("idlehavenBattleMusic")
 
 
 func openPauseOptions():

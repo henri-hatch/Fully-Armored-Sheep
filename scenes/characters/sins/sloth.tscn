@@ -758,7 +758,7 @@ size = Vector2(34, 49)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -48)
 sprite_frames = SubResource("SpriteFrames_bi345")
-animation = &"idleRight"
+animation = &"wakingRight"
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -17)

@@ -5,3 +5,4 @@ extends DialogicBackground
 
 func _ready():
 	slothAnim.play("sleepRight")
+	SfxPlayer.slothSnore()

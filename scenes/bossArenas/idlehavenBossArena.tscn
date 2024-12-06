@@ -751,7 +751,6 @@ limit_bottom = 776
 editor_draw_limits = true
 
 [node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
-visible = false
 
 [node name="pauseMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("4_ku5fh")]
 
@@ -837,7 +836,6 @@ position = Vector2(313, 159)
 position = Vector2(777, 154)
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
 position = Vector2(568, 362)
