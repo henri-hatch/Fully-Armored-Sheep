@@ -236,7 +236,6 @@ drag_vertical_enabled = true
 editor_draw_limits = true
 
 [node name="menuLayer" type="CanvasLayer" parent="Sheep/Camera2D"]
-visible = false
 
 [node name="pauseMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("3_gn1gv")]
 z_index = 1
@@ -318,7 +317,6 @@ position = Vector2(1898, -144)
 shape = SubResource("RectangleShape2D_0j0am")
 
 [node name="FadeLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="FadeLayer"]
 position = Vector2(1104, -82.5)

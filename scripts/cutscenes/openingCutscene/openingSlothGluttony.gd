@@ -1,7 +1,7 @@
 extends DialogicBackground
 
-@onready var slothAnim = $Sloth/AnimationPlayer
-@onready var gluttonyAnim = $Gluttony/AnimationPlayer
+@onready var slothAnim = $Sloth/AnimatedSprite2D
+@onready var gluttonyAnim = $Gluttony/AnimatedSprite2D
 
 
 # Called when the node enters the scene tree for the first time.
