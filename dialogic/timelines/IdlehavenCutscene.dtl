@@ -2,3 +2,5 @@
 [wait time="10.0"]
 [background scene="res://scenes/cutscenes/idlehavenCutscene/idlehavenLethargicSheep.tscn" fade="1.5"]
 [wait time="10.0"]
+[background scene="res://scenes/cutscenes/idlehavenCutscene/idlehavenGluttony.tscn" fade="1.5"]
+[wait time="6.0"]

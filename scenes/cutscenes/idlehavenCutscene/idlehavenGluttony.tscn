@@ -1,12 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://ojevknof0r1v"]
+[gd_scene load_steps=16 format=4 uid="uid://bli828hg57gqq"]
 
-[ext_resource type="Script" path="res://scripts/cutscenes/idlehavenCutscene/idlehaven_lethargic_sheep.gd" id="1_5wjvo"]
-[ext_resource type="Texture2D" uid="uid://b3qkxkun82wo3" path="res://assets/sprites/world/TX Tileset Wall.png" id="2_hb0an"]
-[ext_resource type="Texture2D" uid="uid://boinuo3hoodv" path="res://assets/sprites/world/TX Tileset Stone Ground.png" id="3_ye4tm"]
-[ext_resource type="PackedScene" uid="uid://dhgrwy0lwqwns" path="res://scenes/characters/idlehaven/idlehavenSheep.tscn" id="4_618y8"]
+[ext_resource type="Script" path="res://scripts/cutscenes/idlehavenCutscene/idlehaven_gluttony.gd" id="1_lsalr"]
+[ext_resource type="Texture2D" uid="uid://b3qkxkun82wo3" path="res://assets/sprites/world/TX Tileset Wall.png" id="2_cieqc"]
+[ext_resource type="PackedScene" uid="uid://ojd5wiygcijp" path="res://scenes/characters/idlehaven/hamHock/hamHockPile.tscn" id="3_2xx62"]
+[ext_resource type="Texture2D" uid="uid://boinuo3hoodv" path="res://assets/sprites/world/TX Tileset Stone Ground.png" id="3_htewx"]
+[ext_resource type="PackedScene" uid="uid://bklobdodj62v0" path="res://scenes/characters/sins/gluttony.tscn" id="3_tmo5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sfql7"]
-texture = ExtResource("2_hb0an")
+texture = ExtResource("2_cieqc")
 2:20/0 = 0
 2:19/0 = 0
 2:18/0 = 0
@@ -204,7 +205,7 @@ texture = ExtResource("2_hb0an")
 sources/0 = SubResource("TileSetAtlasSource_sfql7")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2te7v"]
-texture = ExtResource("3_ye4tm")
+texture = ExtResource("3_htewx")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -262,7 +263,7 @@ tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_2te7v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y0fjc"]
-texture = ExtResource("2_hb0an")
+texture = ExtResource("2_cieqc")
 2:2/0 = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 0, 0, 0, 0, 8, -8, 8)
 3:2/0 = 0
@@ -665,7 +666,7 @@ size = Vector2(20, 325)
 size = Vector2(20, 32)
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_5wjvo")
+script = ExtResource("1_lsalr")
 
 [node name="Ground" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -682,8 +683,8 @@ tile_set = SubResource("TileSet_fuwia")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(37, 439)
-offset = Vector2(2.67, 234.835)
-zoom = Vector2(10, 10)
+offset = Vector2(450, 0)
+zoom = Vector2(4, 4)
 limit_left = 24
 limit_top = 96
 limit_right = 1048
@@ -724,10 +725,9 @@ shape = SubResource("RectangleShape2D_ng8e4")
 position = Vector2(1058, 432)
 shape = SubResource("RectangleShape2D_ng8e4")
 
-[node name="IdlehavenSheep" type="Node" parent="."]
+[node name="HamHockPile" parent="." instance=ExtResource("3_2xx62")]
+position = Vector2(586, 496)
 
-[node name="IdlehavenSheep1" parent="IdlehavenSheep" instance=ExtResource("4_618y8")]
-position = Vector2(68, 694)
-
-[node name="IdlehavenSheep2" parent="IdlehavenSheep" instance=ExtResource("4_618y8")]
-position = Vector2(97, 680)
+[node name="Gluttony" parent="." instance=ExtResource("3_tmo5i")]
+position = Vector2(687, 510)
+scale = Vector2(1.25, 1.25)

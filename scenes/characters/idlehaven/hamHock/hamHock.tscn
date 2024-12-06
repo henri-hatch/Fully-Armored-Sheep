@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dajtgwj7qlr01"]
+
+[ext_resource type="Texture2D" uid="uid://1j0kv28ov2ka" path="res://assets/sprites/world/hamHock/Ham-Hock.png" id="1_361oa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_epb84"]
+
+[node name="HamHock" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(10, -10)
+texture = ExtResource("1_361oa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, -12)
+shape = SubResource("CircleShape2D_epb84")
