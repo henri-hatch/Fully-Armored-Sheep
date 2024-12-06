@@ -1,9 +1,11 @@
-[gd_scene load_steps=31 format=3 uid="uid://bklobdodj62v0"]
+[gd_scene load_steps=41 format=3 uid="uid://bklobdodj62v0"]
 
 [ext_resource type="Texture2D" uid="uid://1euxit63ue0b" path="res://assets/sprites/sins/gluttony/Gluttony-Left.png" id="1_inta5"]
 [ext_resource type="Texture2D" uid="uid://j6mhme3g71ei" path="res://assets/sprites/sins/gluttony/Gluttony-Eating-Left.png" id="1_jub7h"]
 [ext_resource type="Texture2D" uid="uid://b401gx5h7f2ji" path="res://assets/sprites/sins/gluttony/Gluttony-Eating-Right.png" id="2_p3mbj"]
 [ext_resource type="Texture2D" uid="uid://tnbbrud2bji2" path="res://assets/sprites/sins/gluttony/Gluttony-Right.png" id="2_q83cg"]
+[ext_resource type="Texture2D" uid="uid://dfn013n15swuc" path="res://assets/sprites/sins/gluttony/Gluttony-Surprised-Left.png" id="5_iq1tt"]
+[ext_resource type="Texture2D" uid="uid://cyqyqpr3lc8t2" path="res://assets/sprites/sins/gluttony/Gluttony-Surprised-Right.png" id="6_onld3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d0oqv"]
 atlas = ExtResource("1_jub7h")
@@ -93,6 +95,38 @@ region = Rect2(96, 0, 96, 96)
 atlas = ExtResource("2_q83cg")
 region = Rect2(192, 0, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx2jk"]
+atlas = ExtResource("5_iq1tt")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27vpo"]
+atlas = ExtResource("5_iq1tt")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u32xh"]
+atlas = ExtResource("5_iq1tt")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jnqc"]
+atlas = ExtResource("5_iq1tt")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eju6v"]
+atlas = ExtResource("6_onld3")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijkt7"]
+atlas = ExtResource("6_onld3")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vlvx"]
+atlas = ExtResource("6_onld3")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx2su"]
+atlas = ExtResource("6_onld3")
+region = Rect2(288, 0, 96, 96)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivl3h"]
 animations = [{
 "frames": [{
@@ -180,6 +214,40 @@ animations = [{
 "loop": true,
 "name": &"idleRight",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx2jk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27vpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u32xh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jnqc")
+}],
+"loop": true,
+"name": &"surprisedLeft",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eju6v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijkt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6vlvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx2su")
+}],
+"loop": true,
+"name": &"surprisedRight",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_0c1jk"]

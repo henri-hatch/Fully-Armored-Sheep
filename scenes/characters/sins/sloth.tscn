@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://c1ev848fj50yh"]
+[gd_scene load_steps=111 format=3 uid="uid://c1ev848fj50yh"]
 
 [ext_resource type="Texture2D" uid="uid://b3wril80xdc6f" path="res://assets/sprites/sins/sloth/Sloth-Right.png" id="1_1u828"]
 [ext_resource type="Texture2D" uid="uid://bw3l6ip8s5uro" path="res://assets/sprites/sins/sloth/Sloth-Attack-Left.png" id="1_mijn3"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bpmll4euejgu7" path="res://assets/sprites/sins/sloth/Sloth-Walk-Right.png" id="4_okrgx"]
 [ext_resource type="Texture2D" uid="uid://cphcrrgcl5k" path="res://assets/sprites/sins/sloth/Sloth-Sleeping-Left.png" id="5_nbaqn"]
 [ext_resource type="Texture2D" uid="uid://b3esu6gt4rxpb" path="res://assets/sprites/sins/sloth/Sloth-Sleeping-Right.png" id="6_lgxlq"]
+[ext_resource type="Texture2D" uid="uid://4evgsluegmph" path="res://assets/sprites/sins/sloth/Sloth-Waking-Left.png" id="7_npwjb"]
+[ext_resource type="Texture2D" uid="uid://bf4em18oubaab" path="res://assets/sprites/sins/sloth/Sloth-Waking-Right.png" id="8_5ot11"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t27ql"]
 atlas = ExtResource("1_mijn3")
@@ -321,6 +323,54 @@ region = Rect2(96, 96, 96, 96)
 atlas = ExtResource("6_lgxlq")
 region = Rect2(192, 96, 96, 96)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmiii"]
+atlas = ExtResource("7_npwjb")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rfqcm"]
+atlas = ExtResource("7_npwjb")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8dnsn"]
+atlas = ExtResource("7_npwjb")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpedc"]
+atlas = ExtResource("7_npwjb")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3s5jc"]
+atlas = ExtResource("7_npwjb")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mori"]
+atlas = ExtResource("7_npwjb")
+region = Rect2(192, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0btmp"]
+atlas = ExtResource("8_5ot11")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5ehy"]
+atlas = ExtResource("8_5ot11")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p16xm"]
+atlas = ExtResource("8_5ot11")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52afy"]
+atlas = ExtResource("8_5ot11")
+region = Rect2(0, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjrha"]
+atlas = ExtResource("8_5ot11")
+region = Rect2(96, 96, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k830m"]
+atlas = ExtResource("8_5ot11")
+region = Rect2(192, 96, 96, 96)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_f13q7"]
 atlas = ExtResource("3_ni4xu")
 region = Rect2(0, 0, 96, 96)
@@ -621,6 +671,52 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_wmiii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rfqcm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8dnsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpedc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3s5jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mori")
+}],
+"loop": true,
+"name": &"wakingLeft",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0btmp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5ehy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p16xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52afy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jjrha")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k830m")
+}],
+"loop": true,
+"name": &"wakingRight",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_f13q7")
 }, {
 "duration": 1.0,
@@ -662,7 +758,7 @@ size = Vector2(34, 49)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -48)
 sprite_frames = SubResource("SpriteFrames_bi345")
-animation = &"sleepLeft"
+animation = &"idleRight"
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(1.5, -17)
