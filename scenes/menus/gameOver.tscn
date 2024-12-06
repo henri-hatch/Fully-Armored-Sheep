@@ -292,6 +292,7 @@ offset_top = 118.0
 offset_right = 138.0
 offset_bottom = 150.0
 grow_horizontal = 2
+theme_override_colors/default_color = Color(0.92549, 0.882353, 0.839216, 1)
 theme_override_fonts/normal_font = ExtResource("2_m1qax")
 theme_override_font_sizes/normal_font_size = 32
 text = "Game Over"

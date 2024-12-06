@@ -98,6 +98,7 @@ offset_left = 446.0
 offset_top = 156.0
 offset_right = 706.0
 offset_bottom = 188.0
+theme_override_colors/font_color = Color(0.92549, 0.882353, 0.839216, 1)
 theme_override_fonts/font = ExtResource("3_vgcel")
 theme_override_font_sizes/font_size = 32
 text = "Volume"
@@ -124,6 +125,7 @@ alignment = 1
 [node name="Master" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.92549, 0.882353, 0.839216, 1)
 theme_override_fonts/font = ExtResource("4_nyugh")
 text = "Master"
 
@@ -136,6 +138,7 @@ step = 0.05
 [node name="Music" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.92549, 0.882353, 0.839216, 1)
 theme_override_fonts/font = ExtResource("4_nyugh")
 text = "Music"
 
@@ -148,6 +151,7 @@ step = 0.05
 [node name="SFX" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.92549, 0.882353, 0.839216, 1)
 theme_override_fonts/font = ExtResource("4_nyugh")
 text = "SFX"
 
