@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8ikh26i3jeig"]
+[gd_scene load_steps=5 format=3 uid="uid://b8ikh26i3jeig"]
 
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="1_0o5m5"]
 [ext_resource type="Script" path="res://scripts/cutscenes/openingCutscene/openingPrideEnvy.gd" id="1_qwwa7"]
 [ext_resource type="PackedScene" uid="uid://df1j3anlotrfn" path="res://scenes/characters/sins/pride.tscn" id="3_pyd2s"]
+[ext_resource type="PackedScene" uid="uid://dxd0h8kvnnmgw" path="res://scenes/characters/sins/envy.tscn" id="4_uyy8l"]
 
 [node name="OpeningPrideEnvy" type="Node2D"]
 script = ExtResource("1_qwwa7")
@@ -14,4 +15,8 @@ texture = ExtResource("1_0o5m5")
 
 [node name="Pride" parent="." instance=ExtResource("3_pyd2s")]
 position = Vector2(426, 388)
+scale = Vector2(3, 3)
+
+[node name="Envy" parent="." instance=ExtResource("4_uyy8l")]
+position = Vector2(685, 388)
 scale = Vector2(3, 3)
