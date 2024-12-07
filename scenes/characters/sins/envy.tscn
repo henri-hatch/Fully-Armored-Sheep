@@ -1,0 +1,167 @@
+[gd_scene load_steps=14 format=3 uid="uid://dxd0h8kvnnmgw"]
+
+[ext_resource type="Texture2D" uid="uid://buuo40uuvu0ql" path="res://assets/sprites/sins/envy/Envy-Left.png" id="1_386u7"]
+[ext_resource type="Texture2D" uid="uid://b8e4bniqaakp1" path="res://assets/sprites/sins/envy/Envy-Right.png" id="2_liick"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lmftx"]
+atlas = ExtResource("1_386u7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7s8o"]
+atlas = ExtResource("1_386u7")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gf4j"]
+atlas = ExtResource("1_386u7")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm7mc"]
+atlas = ExtResource("2_liick")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er8m6"]
+atlas = ExtResource("2_liick")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fla3a"]
+atlas = ExtResource("2_liick")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jqpl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lmftx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a7s8o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4gf4j")
+}],
+"loop": true,
+"name": &"idleLeft",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm7mc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er8m6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fla3a")
+}],
+"loop": true,
+"name": &"idleRight",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_l5cvx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_v5axe"]
+resource_name = "idleLeft"
+length = 3.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_4vuco"]
+resource_name = "idleRight"
+length = 3.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ujola"]
+_data = {
+"RESET": SubResource("Animation_l5cvx"),
+"idleLeft": SubResource("Animation_v5axe"),
+"idleRight": SubResource("Animation_4vuco")
+}
+
+[node name="Envy" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_jqpl4")
+animation = &"idleLeft"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ujola")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

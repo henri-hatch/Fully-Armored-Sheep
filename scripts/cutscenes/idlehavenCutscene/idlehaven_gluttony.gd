@@ -1,7 +1,7 @@
 extends DialogicBackground
 
 
-@onready var gluttonyAnim = $Gluttony/AnimatedSprite2D
+@onready var gluttonyAnim = $Gluttony/AnimationPlayer
 
 func _ready():
 	gluttonyAnim.play("eatingLeft")

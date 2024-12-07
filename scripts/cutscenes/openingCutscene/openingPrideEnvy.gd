@@ -1,5 +1,9 @@
 extends DialogicBackground
 
+@onready var prideAnim = $Pride/AnimationPlayer
+@onready var envyAnim = $Envy/AnimationPlayer
+
 
 func _ready():
-	pass # Replace with function body.
+	prideAnim.play("idleRight")
+	envyAnim.play("idleLeft")

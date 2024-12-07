@@ -1,0 +1,171 @@
+[gd_scene load_steps=15 format=3 uid="uid://domdwfrgao6ju"]
+
+[ext_resource type="Texture2D" uid="uid://cse42fr83dad7" path="res://assets/sprites/sins/wrath/Wrath-Left.png" id="1_qvisj"]
+[ext_resource type="Texture2D" uid="uid://c1xtk2s1kuxa6" path="res://assets/sprites/sins/wrath/Wrath-Right.png" id="2_hl1wj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2psu"]
+atlas = ExtResource("1_qvisj")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7b8xo"]
+atlas = ExtResource("1_qvisj")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hk4xi"]
+atlas = ExtResource("1_qvisj")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odlh6"]
+atlas = ExtResource("2_hl1wj")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr8fk"]
+atlas = ExtResource("2_hl1wj")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq7e8"]
+atlas = ExtResource("2_hl1wj")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sc16u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2psu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7b8xo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hk4xi")
+}],
+"loop": true,
+"name": &"idleLeft",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odlh6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr8fk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq7e8")
+}],
+"loop": true,
+"name": &"idleRight",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_ilhpp"]
+resource_name = "idleLeft"
+length = 3.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_u5cen"]
+resource_name = "idleRight"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_dkfa3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_83c8e"]
+_data = {
+"RESET": SubResource("Animation_dkfa3"),
+"idleLeft": SubResource("Animation_ilhpp"),
+"idleRight": SubResource("Animation_u5cen")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h6a4q"]
+size = Vector2(33, 44)
+
+[node name="Wrath" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_sc16u")
+animation = &"idleLeft"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_83c8e")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -22)
+shape = SubResource("RectangleShape2D_h6a4q")
