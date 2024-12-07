@@ -1,0 +1,172 @@
+[gd_scene load_steps=15 format=3 uid="uid://df1j3anlotrfn"]
+
+[ext_resource type="Texture2D" uid="uid://bv08gfcfp0ech" path="res://assets/sprites/sins/pride/Pride-Left.png" id="1_lnm5h"]
+[ext_resource type="Texture2D" uid="uid://cmio24bl080tx" path="res://assets/sprites/sins/pride/Pride-Right.png" id="2_c3ens"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym5hf"]
+atlas = ExtResource("1_lnm5h")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_haap3"]
+atlas = ExtResource("1_lnm5h")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3dly6"]
+atlas = ExtResource("1_lnm5h")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsa4w"]
+atlas = ExtResource("2_c3ens")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r013"]
+atlas = ExtResource("2_c3ens")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu56e"]
+atlas = ExtResource("2_c3ens")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7n85"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym5hf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_haap3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3dly6")
+}],
+"loop": true,
+"name": &"idleLeft",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsa4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r013")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu56e")
+}],
+"loop": true,
+"name": &"idleRight",
+"speed": 1.0
+}]
+
+[sub_resource type="Animation" id="Animation_cgpfg"]
+resource_name = "idleLeft"
+length = 3.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleLeft"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_c8ush"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_ce1i3"]
+resource_name = "idleRight"
+length = 3.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idleRight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f6mc1"]
+_data = {
+"RESET": SubResource("Animation_c8ush"),
+"idleLeft": SubResource("Animation_cgpfg"),
+"idleRight": SubResource("Animation_ce1i3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sttgb"]
+size = Vector2(29, 42)
+
+[node name="Pride" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -48)
+sprite_frames = SubResource("SpriteFrames_k7n85")
+animation = &"idleRight"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f6mc1")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, -21)
+shape = SubResource("RectangleShape2D_sttgb")
