@@ -1,5 +1,7 @@
 extends DialogicBackground
 
+@onready var wrathAnim = $Wrath/AnimationPlayer
+
 
 func _ready():
-	pass # Replace with function body.
+	wrathAnim.play("idleLeft")
