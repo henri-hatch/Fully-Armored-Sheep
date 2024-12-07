@@ -1,64 +1,64 @@
-[gd_scene load_steps=15 format=3 uid="uid://6hg0b07w10tq"]
+[gd_scene load_steps=15 format=3 uid="uid://cn7ntmd5ehols"]
 
-[ext_resource type="Texture2D" uid="uid://dy15ro134gq2r" path="res://assets/sprites/sins/deceit/Deceit-Left.png" id="1_3nl3d"]
-[ext_resource type="Texture2D" uid="uid://ch7iegpgkhj3v" path="res://assets/sprites/sins/deceit/Deceit-Right.png" id="2_f0fkg"]
+[ext_resource type="Texture2D" uid="uid://ecq6df8gaw3l" path="res://assets/sprites/sins/lust/Lust-Left.png" id="1_6xi7i"]
+[ext_resource type="Texture2D" uid="uid://fglc588k706" path="res://assets/sprites/sins/lust/Lust-Right.png" id="2_7aiys"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_g4nsv"]
-atlas = ExtResource("1_3nl3d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1qmyc"]
+atlas = ExtResource("1_6xi7i")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ccghp"]
-atlas = ExtResource("1_3nl3d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jceh"]
+atlas = ExtResource("1_6xi7i")
 region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bux23"]
-atlas = ExtResource("1_3nl3d")
+[sub_resource type="AtlasTexture" id="AtlasTexture_mn2lb"]
+atlas = ExtResource("1_6xi7i")
 region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ijah"]
-atlas = ExtResource("2_f0fkg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ssel"]
+atlas = ExtResource("2_7aiys")
 region = Rect2(0, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n5y50"]
-atlas = ExtResource("2_f0fkg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfgny"]
+atlas = ExtResource("2_7aiys")
 region = Rect2(96, 0, 96, 96)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_anwk1"]
-atlas = ExtResource("2_f0fkg")
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c6op"]
+atlas = ExtResource("2_7aiys")
 region = Rect2(192, 0, 96, 96)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_cb2n2"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_di2k1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_g4nsv")
+"texture": SubResource("AtlasTexture_1qmyc")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ccghp")
+"texture": SubResource("AtlasTexture_0jceh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bux23")
+"texture": SubResource("AtlasTexture_mn2lb")
 }],
 "loop": true,
 "name": &"idleLeft",
-"speed": 1.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4ijah")
+"texture": SubResource("AtlasTexture_5ssel")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n5y50")
+"texture": SubResource("AtlasTexture_kfgny")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_anwk1")
+"texture": SubResource("AtlasTexture_3c6op")
 }],
 "loop": true,
 "name": &"idleRight",
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_e7ytx"]
+[sub_resource type="Animation" id="Animation_txjbd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -70,7 +70,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"idleLeft"]
+"values": [&"idleRight"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -94,10 +94,10 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5.5, -22.5)]
+"values": [Vector2(0.5, -21.5)]
 }
 
-[sub_resource type="Animation" id="Animation_w7f74"]
+[sub_resource type="Animation" id="Animation_hvwmd"]
 resource_name = "idleLeft"
 length = 3.0
 loop_mode = 1
@@ -136,10 +136,10 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5.5, -22.5)]
+"values": [Vector2(1.5, -21.5)]
 }
 
-[sub_resource type="Animation" id="Animation_qt8vu"]
+[sub_resource type="Animation" id="Animation_88uvv"]
 resource_name = "idleRight"
 length = 3.0
 loop_mode = 1
@@ -168,41 +168,29 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5, -22.75)]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_sti70"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yfv04"]
 _data = {
-"RESET": SubResource("Animation_e7ytx"),
-"idleLeft": SubResource("Animation_w7f74"),
-"idleRight": SubResource("Animation_qt8vu")
+"RESET": SubResource("Animation_txjbd"),
+"idleLeft": SubResource("Animation_hvwmd"),
+"idleRight": SubResource("Animation_88uvv")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_by1rf"]
-size = Vector2(31, 45.5)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6aqcx"]
+size = Vector2(31, 43)
 
-[node name="Deceit" type="CharacterBody2D"]
+[node name="Lust" type="CharacterBody2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -48)
-sprite_frames = SubResource("SpriteFrames_cb2n2")
-animation = &"idleLeft"
+sprite_frames = SubResource("SpriteFrames_di2k1")
+animation = &"idleRight"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_sti70")
+"": SubResource("AnimationLibrary_yfv04")
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5.5, -22.5)
-shape = SubResource("RectangleShape2D_by1rf")
+position = Vector2(0.5, -21.5)
+shape = SubResource("RectangleShape2D_6aqcx")

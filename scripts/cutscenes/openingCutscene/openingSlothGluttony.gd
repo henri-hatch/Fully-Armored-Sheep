@@ -1,7 +1,7 @@
 extends DialogicBackground
 
-@onready var slothAnim = $Sloth/AnimatedSprite2D
-@onready var gluttonyAnim = $Gluttony/AnimatedSprite2D
+@onready var slothAnim = $Sloth/AnimationPlayer
+@onready var gluttonyAnim = $Gluttony/AnimationPlayer
 
 
 func _ready():
