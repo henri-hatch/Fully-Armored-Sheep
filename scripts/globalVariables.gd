@@ -11,6 +11,7 @@ var current_song = ""
 var current_scene = ""
 var openingCutscenePlayed = false
 var idlehavenCutscenePlayed = false
+var idlehavenBattleWon = false
 var coords = Vector2()
 
 signal pauseOptionsPressed
