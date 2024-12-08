@@ -4,6 +4,7 @@ extends Node2D
 @onready var fadeAnim = $FadeLayer/AnimationPlayer
 @onready var pauseMenu = $Sheep/Camera2D/menuLayer/pauseMenu
 @onready var pauseOptionsMenu = $Sheep/Camera2D/menuLayer/pauseOptionsMenu
+@onready var leaveMenu = $Sheep/Camera2D/menuLayer/leaveMenu
 
 
 func _ready():
@@ -14,6 +15,7 @@ func _ready():
 	GlobalVariables.characters_can_move = true
 	pauseMenu.hide()
 	pauseOptionsMenu.hide()
+	leaveMenu.hide()
 	fadeAnim.play("fadeIn")
 	sheepAnim.play("right")
 	if GlobalVariables.current_song != "idlehavenBattleMusic":
@@ -30,6 +32,14 @@ func closePauseOptions():
 	if pauseOptionsMenu.is_visible_in_tree():
 		pauseOptionsMenu.hide()
 		pauseMenu.show()
+
+
+func openLeaveMenu():
+	leaveMenu.show()
+
+
+func closeLeaveMenu():
+	leaveMenu.hide()
 
 
 func _process(delta):
