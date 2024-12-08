@@ -16,6 +16,9 @@ var coords = Vector2()
 
 signal pauseOptionsPressed
 signal pauseOptionsBackPressed
+signal leaveMenuTriggered
+signal leaveMenuClosed
+signal confirmLeave
 
 
 func startGame():
