@@ -18,10 +18,6 @@ func _physics_process(delta):
 			position += (player.position - position)/speed
 			if attacking == true:
 				$AnimatedSprite2D.play("attackRight")
-				if(player.position.x - position.x) < 0:
-					$AnimatedSprite2D.flip_h = true
-				else:
-					$AnimatedSprite2D.flip_h = false
 				end_attack()
 			else:
 				if attacking == false:
@@ -33,18 +29,21 @@ func _physics_process(delta):
 						$AnimatedSprite2D.flip_h = false
 		else:
 			$AnimatedSprite2D.play("idleLeft")
+	move_and_slide()
 func enemy():
 	pass
 
 
 func _on_detection_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	player = body
-	player_chase=true
+	if body.has_method("player"):
+		player=body
+		player_chase=true
 
 
 func _on_detection_area_body_shape_exited(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	player = null
-	player_chase = false
+	if body.has_method("player"):
+		player=null
+		player_chase=false
 	
 
 func _on_enemy_hitbox_body_entered(body: Node2D) -> void:
@@ -57,6 +56,10 @@ func end_attack():
 	GlobalVariables.enemy_attack = true
 	GlobalVariables.attack_amount = 60
 	attacking = false
+	if(player.position.x - position.x) < 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
 	if player_in_zone == true:
 		attacking = true
 	else:
