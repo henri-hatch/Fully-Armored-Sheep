@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://boinuo3hoodv" path="res://assets/sprites/world/TX Tileset Stone Ground.png" id="3_br502"]
 [ext_resource type="PackedScene" uid="uid://bemwx7lc1jtqn" path="res://scenes/menus/pauseMenu.tscn" id="4_ku5fh"]
 [ext_resource type="PackedScene" uid="uid://c4a4rxh0vj8ws" path="res://scenes/menus/pauseOptionsMenu.tscn" id="5_pujfj"]
-[ext_resource type="PackedScene" path="res://scenes/menus/leaveMenu.tscn" id="7_x32a0"]
+[ext_resource type="PackedScene" uid="uid://qm1rlc7bk32v" path="res://scenes/menus/leaveMenu.tscn" id="7_x32a0"]
 [ext_resource type="PackedScene" uid="uid://dhgrwy0lwqwns" path="res://scenes/characters/idlehaven/idlehavenSheep.tscn" id="8_1exv4"]
 [ext_resource type="Texture2D" uid="uid://baxx3nqenx6nn" path="res://addons/dialogic/Modules/Background/blackBackground.png" id="9_lgao0"]
 [ext_resource type="PackedScene" uid="uid://ojd5wiygcijp" path="res://scenes/characters/idlehaven/hamHock/hamHockPile.tscn" id="10_jq7qy"]
@@ -744,6 +744,7 @@ tile_set = SubResource("TileSet_fuwia")
 
 [node name="Sloth" parent="." instance=ExtResource("2_wdsr1")]
 position = Vector2(293, 444)
+scale = Vector2(1.25, 1.25)
 
 [node name="Sheep" parent="." instance=ExtResource("2_lknqd")]
 position = Vector2(37, 439)
@@ -763,9 +764,6 @@ editor_draw_limits = true
 [node name="pauseOptionsMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("5_pujfj")]
 
 [node name="leaveMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("7_x32a0")]
-
-[node name="Sloth" parent="." instance=ExtResource("2_wdsr1")]
-position = Vector2(293, 444)
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
 
