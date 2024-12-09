@@ -1,6 +1,7 @@
 [gd_scene load_steps=124 format=3 uid="uid://c1ev848fj50yh"]
 
 [ext_resource type="Texture2D" uid="uid://b3wril80xdc6f" path="res://assets/sprites/sins/sloth/Sloth-Right.png" id="1_1u828"]
+[ext_resource type="Script" path="res://scripts/characterScripts/sloth.gd" id="1_aw13v"]
 [ext_resource type="Texture2D" uid="uid://bw3l6ip8s5uro" path="res://assets/sprites/sins/sloth/Sloth-Attack-Left.png" id="1_mijn3"]
 [ext_resource type="Texture2D" uid="uid://bn02bbh31qqqq" path="res://assets/sprites/sins/sloth/Sloth-Left.png" id="1_vy8qe"]
 [ext_resource type="Texture2D" uid="uid://clgnpa8dnu7uo" path="res://assets/sprites/sins/sloth/Sloth-Attack-Right.png" id="2_8ch4h"]
@@ -130,26 +131,6 @@ region = Rect2(448, 448, 112, 112)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcqq6"]
 atlas = ExtResource("1_mijn3")
 region = Rect2(560, 448, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g1dsb"]
-atlas = ExtResource("2_8ch4h")
-region = Rect2(0, 0, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dgmca"]
-atlas = ExtResource("2_8ch4h")
-region = Rect2(112, 0, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_27nro"]
-atlas = ExtResource("2_8ch4h")
-region = Rect2(224, 0, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dyc15"]
-atlas = ExtResource("2_8ch4h")
-region = Rect2(336, 0, 112, 112)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ybk8v"]
-atlas = ExtResource("2_8ch4h")
-region = Rect2(448, 0, 112, 112)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xctp"]
 atlas = ExtResource("2_8ch4h")
@@ -498,24 +479,9 @@ animations = [{
 }],
 "loop": true,
 "name": &"attackLeft",
-"speed": 15.0
+"speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g1dsb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dgmca")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_27nro")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dyc15")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ybk8v")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2xctp")
 }, {
@@ -591,9 +557,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o17wl")
 }],
-"loop": true,
+"loop": false,
 "name": &"attackRight",
-"speed": 15.0
+"speed": 12.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -1262,7 +1228,21 @@ size = Vector2(34, 49)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aaaks"]
 size = Vector2(33, 19.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_chsq7"]
+radius = 134.034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l505a"]
+radius = 89.0225
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3x7as"]
+radius = 42.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7yko3"]
+radius = 22.0
+height = 50.0
+
 [node name="Sloth" type="CharacterBody2D"]
+script = ExtResource("1_aw13v")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -48)
@@ -1282,3 +1262,45 @@ shape = SubResource("RectangleShape2D_qpabe")
 [node name="Arms" type="CollisionShape2D" parent="."]
 position = Vector2(8, -12.5)
 shape = SubResource("RectangleShape2D_aaaks")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionArea" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_chsq7")
+
+[node name="Enemy Hitbox" type="Area2D" parent="."]
+
+[node name="enemy_hitbox" type="CollisionShape2D" parent="Enemy Hitbox"]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_l505a")
+
+[node name="damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.164706, 0.654902, 0.247059, 1)
+offset_left = -26.0
+offset_top = 4.0
+offset_right = 28.0
+offset_bottom = 13.0
+max_value = 400.0
+show_percentage = false
+
+[node name="Enemy Hurtbox" type="Area2D" parent="."]
+
+[node name="enemy_hurtbox" type="CollisionShape2D" parent="Enemy Hurtbox"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_3x7as")
+
+[node name="general_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("CapsuleShape2D_7yko3")
+
+[connection signal="body_shape_entered" from="DetectionArea" to="." method="_on_detection_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="DetectionArea" to="." method="_on_detection_area_body_shape_exited"]
+[connection signal="body_entered" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="area_shape_entered" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_area_shape_entered"]
+[connection signal="area_shape_exited" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_area_shape_exited"]
