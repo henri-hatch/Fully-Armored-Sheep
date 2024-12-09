@@ -80,6 +80,7 @@ func deal_with_damage():
 			if health <= 0:
 				$AnimatedSprite2D.play("death")
 				self.queue_free()
+				GlobalVariables.slothAlive = false
 
 
 func _on_damage_cooldown_timeout() -> void:
