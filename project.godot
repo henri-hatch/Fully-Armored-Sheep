@@ -26,11 +26,13 @@ SfxPlayer="*res://scenes/sfxPlayer.tscn"
 
 directories/dch_directory={
 "Shepherd": "res://dialogic/characters/Shepherd.dch",
-"swordCharacter": "res://dialogic/characters/swordCharacter.dch"
+"shoes": "res://dialogic/characters/shoes.dch",
+"sword": "res://dialogic/characters/sword.dch"
 }
 directories/dtl_directory={
 "IdlehavenCutscene": "res://dialogic/timelines/IdlehavenCutscene.dtl",
-"openingCutscene": "res://dialogic/timelines/openingCutscene.dtl"
+"openingCutscene": "res://dialogic/timelines/openingCutscene.dtl",
+"shoesCutscene": "res://dialogic/timelines/shoesCutscene.dtl"
 }
 layout/style_list=["res://addons/dialogic/Modules/Style/customStyle.tres"]
 layout/default_style="res://addons/dialogic/Modules/Style/customStyle.tres"

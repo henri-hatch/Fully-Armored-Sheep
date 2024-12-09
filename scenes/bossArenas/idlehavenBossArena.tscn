@@ -762,7 +762,6 @@ editor_draw_limits = true
 [node name="leaveMenu" parent="Sheep/Camera2D/menuLayer" instance=ExtResource("7_x32a0")]
 
 [node name="Sloth" parent="." instance=ExtResource("2_wdsr1")]
-
 position = Vector2(293, 444)
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
