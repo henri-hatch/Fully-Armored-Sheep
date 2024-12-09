@@ -34,7 +34,7 @@ func _physics_process(delta):
 				else: pass
 		else:
 			$AnimatedSprite2D.play("RightIdle")
-
+	move_and_slide()
 
 func _on_detection_area_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
 	player=body
