@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=4 uid="uid://4g21p78ss3y0"]
+[gd_scene load_steps=34 format=4 uid="uid://4g21p78ss3y0"]
 
 [ext_resource type="Texture2D" uid="uid://iw0o20b8xkcr" path="res://assets/sprites/world/TX Tileset Grass.png" id="1_c1qw6"]
 [ext_resource type="Script" path="res://scripts/trainingGrounds.gd" id="1_r54w6"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://scripts/sceneTriggers/moveToFieldTrigger.gd" id="7_af4ij"]
 [ext_resource type="Texture2D" uid="uid://cynyy4oj3qjbo" path="res://assets/sprites/world/Sign.png" id="7_igimc"]
 [ext_resource type="FontFile" uid="uid://bpvmy3ssr8mp0" path="res://assets/fonts/PixelOperator8.ttf" id="8_7xd2p"]
+[ext_resource type="Texture2D" uid="uid://bs27nrj2g5ddt" path="res://assets/sprites/world/TX Plant.png" id="9_8te5v"]
 [ext_resource type="Script" path="res://scripts/sceneTriggers/moveToIdlehavenTrigger.gd" id="10_b6s45"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f8a0h"]
@@ -128,10 +129,40 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-2, 7, 3, 7, 3, 11, -2, 11)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7soyn"]
+texture = ExtResource("9_8te5v")
+texture_region_size = Vector2i(32, 32)
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+0:0/size_in_atlas = Vector2i(5, 5)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 57, 4, 57, 4, 63, 5, 63, 5, 70, 4, 70, 4, 71, 3, 71, 3, 72, 2, 72, 2, 73, -3, 73, -3, 72, -4, 72, -4, 71, -5, 71, -5, 70, -6, 70, -6, 65, -5, 65)
+5:0/size_in_atlas = Vector2i(3, 5)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5, 57, 4, 57, 4, 65, 5, 65, 5, 70, 4, 70, 4, 71, 3, 71, 3, 72, 2, 72, 2, 73, -3, 73, -3, 72, -4, 72, -4, 71, -5, 71, -5, 70, -6, 70, -6, 63, -5, 63)
+9:0/size_in_atlas = Vector2i(3, 5)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, 57, 4, 57, 4, 59, 5, 59, 5, 69, 4, 69, 4, 70, 3, 70, 3, 71, -3, 71, -3, 70, -4, 70, -4, 69, -5, 69, -5, 64, -4, 64)
+
 [sub_resource type="TileSet" id="TileSet_umyuw"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0dif6")
+sources/1 = SubResource("TileSetAtlasSource_7soyn")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_662hf"]
 size = Vector2(1760, 20)
@@ -273,7 +304,7 @@ libraries = {
 }
 
 [node name="Obstacles" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAgAPr/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAAgAPr/AAAAAAAAAAAwAPH/AQAAAAAAAAAPAAQAAQAAAAAAAAAwAAwAAQAAAAAAAAAjAPf/AQAJAAAAAAA2AAQAAQAJAAAAAAAHAO//AQAJAAAAAAAaAAsAAQAFAAAAAAAHAAsAAQAFAAAAAAAlAAMAAQAAAAAAAAATAPL/AQAFAAAAAAA=")
 tile_set = SubResource("TileSet_umyuw")
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
