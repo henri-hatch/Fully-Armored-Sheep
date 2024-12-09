@@ -172,6 +172,7 @@ radius = 26.0
 radius = 17.0294
 
 [node name="Snake" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_m2uqy")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
