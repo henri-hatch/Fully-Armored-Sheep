@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 var enemy_inattack_range = false
-var enemy_attack_cooldown = true
+var hitstun_cooldown = true
 var health = 100
+var max_health = 100
 var speed = 100
 var direction = Vector2.ZERO
 var lastAnimDir: String = "Down"
@@ -69,29 +70,28 @@ func attack_animation_finished():
 func player():
 	pass
 
-func _on_player_hitbox_body_entered(body: Node2D) -> void:
-	if body.has_method("enemy"):
-		enemy_inattack_range = true
 
+func _on_player_hitbox_body_entered(body: Node2D) -> void:
+	pass
 
 
 func _on_player_hitbox_body_exited(body: Node2D) -> void:
-	if body.has_method("enemy"):
-		enemy_inattack_range = false
+	pass
+	
 	
 func enemy_attack():
 	if health > 0:
-		if enemy_inattack_range and enemy_attack_cooldown == true:
-			health -= 20
+		if enemy_inattack_range and hitstun_cooldown == true and GlobalVariables.enemy_attack == true:
+			health -= GlobalVariables.attack_amount
 			SfxPlayer.hurt()
-			enemy_attack_cooldown = false
+			hitstun_cooldown = false
+			GlobalVariables.enemy_attack = false
 			$hit_stun.start()
-			print(health)
 	else:
 		GlobalVariables.gameOver()
 
 func _on_hit_stun_timeout() -> void:
-	enemy_attack_cooldown = true
+	hitstun_cooldown = true
 
 func attack():
 	var dir = current_dir
@@ -108,17 +108,26 @@ func _on_attack_timer_timeout() -> void:
 func update_health():
 	var healthbar = $healthbar
 	healthbar.value = health
-	if health >= 100:
+	if health >= max_health:
 		healthbar.visible = false
 	else:
 		healthbar.visible = true
 	
 	
-	
 func _on_regen_timeout() -> void:
-	if health < 100:
+	if health < max_health:
 		health += 20
-		if health > 100:
+		if health > max_health:
 			health = 100
 	if health <= 0:
 		health = 0
+
+
+func _on_player_hurtbox_body_entered(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range = true
+
+
+func _on_player_hurtbox_body_exited(body: Node2D) -> void:
+	if body.has_method("enemy"):
+		enemy_inattack_range = false

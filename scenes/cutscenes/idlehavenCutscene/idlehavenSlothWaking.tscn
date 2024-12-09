@@ -693,6 +693,7 @@ editor_draw_limits = true
 [node name="Sloth" parent="." instance=ExtResource("4_3kj6a")]
 position = Vector2(286, 439)
 scale = Vector2(1.25, 1.25)
+script = null
 
 [node name="CollisionShapes" type="StaticBody2D" parent="."]
 
