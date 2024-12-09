@@ -1,0 +1,72 @@
+[gd_scene load_steps=6 format=3 uid="uid://qm1rlc7bk32v"]
+
+[ext_resource type="Script" path="res://scripts/menus/leaveMenu.gd" id="1_2x0tr"]
+[ext_resource type="Shader" path="res://assets/shaders/pauseMenu.gdshader" id="1_w4bce"]
+[ext_resource type="FontFile" uid="uid://bpvmy3ssr8mp0" path="res://assets/fonts/PixelOperator8.ttf" id="2_c1ku0"]
+[ext_resource type="Theme" uid="uid://bi0il84kodvpr" path="res://assets/themes/buttonTheme.tres" id="3_lnqlh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o20qa"]
+shader = ExtResource("1_w4bce")
+shader_parameter/amount = 2.5
+
+[node name="leaveMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2x0tr")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_o20qa")
+layout_mode = 0
+offset_left = -106.0
+offset_top = -76.0
+offset_right = 1279.0
+offset_bottom = 782.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -301.0
+offset_top = 156.0
+offset_right = 300.0
+offset_bottom = 196.0
+grow_horizontal = 2
+theme_override_colors/default_color = Color(0.92549, 0.882353, 0.839216, 1)
+theme_override_fonts/normal_font = ExtResource("2_c1ku0")
+theme_override_font_sizes/normal_font_size = 24
+text = "Are you sure you want to leave?"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -51.5
+offset_right = 144.0
+offset_bottom = 51.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Yes" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_lnqlh")
+text = "Yes"
+
+[node name="No" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_lnqlh")
+text = "No"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/No" to="." method="_on_no_pressed"]
