@@ -4,7 +4,9 @@ var enemy_inattack_range = false
 var hitstun_cooldown = true
 var health = 100
 var max_health = 100
-var speed = 100
+var walk_speed = 50
+var run_speed = 100
+var speed = run_speed
 var direction = Vector2.ZERO
 var lastAnimDir: String = "Down"
 var isAttacking: bool = false
@@ -12,6 +14,10 @@ var current_dir = ""
 @onready var sheepAnim = $AnimationPlayer
 @onready var weapon = $Weapon
 
+func _ready():
+	if GlobalVariables.shoesOfReadiness:
+		run_speed += GlobalVariables.shoesOfReadinessBoost
+		print(speed)
 
 func _physics_process(delta):
 	enemy_attack()
@@ -22,9 +28,9 @@ func _physics_process(delta):
 		if not isAttacking:
 			# Handle walking speed
 			if Input.is_action_pressed("walk"):
-				speed = 50
+				speed = walk_speed
 			else:
-				speed = 100
+				speed = run_speed
 			
 			# Handle movement input
 			var playerDirection = Input.get_vector("left", "right", "up", "down")
