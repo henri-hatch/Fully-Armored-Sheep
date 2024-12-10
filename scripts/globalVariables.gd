@@ -41,6 +41,10 @@ func startSlothGluttonyBattle():
 func endShoesCutscene():
 	shoesOfReadiness = true
 	get_tree().change_scene_to_file("res://scenes/idlehavenRestored.tscn")
+	
+func checkSGBattleWon():
+	if !slothAlive and !gluttonyAlive:
+		idlehavenBattleWon = true
 
 
 func pause(menu_path):
