@@ -1150,7 +1150,7 @@ offset_left = -26.0
 offset_top = 4.0
 offset_right = 28.0
 offset_bottom = 13.0
-max_value = 400.0
+max_value = 200.0
 show_percentage = false
 
 [node name="Enemy Hurtbox" type="Area2D" parent="."]

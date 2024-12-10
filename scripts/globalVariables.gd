@@ -24,6 +24,7 @@ signal pauseOptionsBackPressed
 signal leaveMenuTriggered
 signal leaveMenuClosed
 signal confirmLeave
+signal SGBattleWon
 
 
 func startGame():
@@ -41,10 +42,12 @@ func startSlothGluttonyBattle():
 func endShoesCutscene():
 	shoesOfReadiness = true
 	get_tree().change_scene_to_file("res://scenes/idlehavenRestored.tscn")
+	player_can_move = true
+	characters_can_move = true
 	
 func checkSGBattleWon():
 	if !slothAlive and !gluttonyAlive:
-		idlehavenBattleWon = true
+		SGBattleWon.emit()
 
 
 func pause(menu_path):
