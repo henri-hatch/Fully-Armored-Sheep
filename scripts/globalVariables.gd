@@ -17,6 +17,7 @@ var slothAlive = true
 var gluttonyAlive = true
 var idlehavenBattleWon = false
 var shoesOfReadiness = false
+var shoesOfReadinessBoost = 25
 var coords = Vector2()
 
 signal pauseOptionsPressed
