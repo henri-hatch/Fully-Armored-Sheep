@@ -78,14 +78,6 @@ func player():
 	pass
 
 
-func _on_player_hitbox_body_entered(body: Node2D) -> void:
-	enemy_inattack_range = true
-
-
-func _on_player_hitbox_body_exited(body: Node2D) -> void:
-	enemy_inattack_range = false
-	
-	
 func enemy_attack():
 	if health > 0:
 		if hitstun_cooldown == true and GlobalVariables.enemy_attack == true:
@@ -102,7 +94,7 @@ func _on_hit_stun_timeout() -> void:
 
 func attack():
 	var dir = current_dir
-	if Input.is_action_just_pressed("attack") and enemy_inattack_range:
+	if Input.is_action_just_pressed("attack") :
 		GlobalVariables.player_current_attack = true
 		$attack_timer.start()
 
