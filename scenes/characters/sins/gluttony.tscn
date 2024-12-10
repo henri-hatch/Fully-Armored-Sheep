@@ -1,8 +1,9 @@
-[gd_scene load_steps=76 format=3 uid="uid://bklobdodj62v0"]
+[gd_scene load_steps=81 format=3 uid="uid://bklobdodj62v0"]
 
 [ext_resource type="Texture2D" uid="uid://1euxit63ue0b" path="res://assets/sprites/sins/gluttony/Gluttony-Left.png" id="1_inta5"]
 [ext_resource type="Texture2D" uid="uid://j6mhme3g71ei" path="res://assets/sprites/sins/gluttony/Gluttony-Eating-Left.png" id="1_jub7h"]
 [ext_resource type="Texture2D" uid="uid://b2sr5q432bfjw" path="res://assets/sprites/sins/gluttony/Gluttony-Bounce-Left.png" id="1_lxhpm"]
+[ext_resource type="Script" path="res://scripts/characterScripts/gluttony.gd" id="1_n6k74"]
 [ext_resource type="Texture2D" uid="uid://wjuaytf86i7s" path="res://assets/sprites/sins/gluttony/Gluttony-Bounce-Right.png" id="2_mmj1h"]
 [ext_resource type="Texture2D" uid="uid://b401gx5h7f2ji" path="res://assets/sprites/sins/gluttony/Gluttony-Eating-Right.png" id="2_p3mbj"]
 [ext_resource type="Texture2D" uid="uid://tnbbrud2bji2" path="res://assets/sprites/sins/gluttony/Gluttony-Right.png" id="2_q83cg"]
@@ -1003,12 +1004,26 @@ _data = {
 "throwRight": SubResource("Animation_fn7t2")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rieav"]
+radius = 25.0
+height = 60.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5lan"]
 radius = 15.0
 height = 62.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ampwp"]
+radius = 134.034
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lidnh"]
+radius = 101.415
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ja4wc"]
+radius = 43.0116
+
 [node name="Gluttony" type="CharacterBody2D"]
 motion_mode = 1
+script = ExtResource("1_n6k74")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2, -48)
@@ -1020,10 +1035,47 @@ libraries = {
 "": SubResource("AnimationLibrary_rmojh")
 }
 
+[node name="general_detection" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -28)
+shape = SubResource("CapsuleShape2D_rieav")
+
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(-1, -15)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_q5lan")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+visible = false
+
+[node name="DetectionArea" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -32)
+shape = SubResource("CircleShape2D_ampwp")
+
+[node name="Enemy Hitbox" type="Area2D" parent="."]
+
+[node name="enemy_hitbox" type="CollisionShape2D" parent="Enemy Hitbox"]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_lidnh")
+
+[node name="damage_cooldown" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="healthbar" type="ProgressBar" parent="."]
+modulate = Color(0.164706, 0.654902, 0.247059, 1)
+offset_left = -26.0
+offset_top = 4.0
+offset_right = 28.0
+offset_bottom = 13.0
+max_value = 400.0
+show_percentage = false
+
+[node name="Enemy Hurtbox" type="Area2D" parent="."]
+visible = false
+
+[node name="enemy_hurtbox" type="CollisionShape2D" parent="Enemy Hurtbox"]
+position = Vector2(0, -37)
+shape = SubResource("CircleShape2D_ja4wc")
 
 [node name="HamHockLeft" parent="." instance=ExtResource("11_0l3sw")]
 visible = false
@@ -1034,3 +1086,12 @@ rotation = -1.5708
 visible = false
 position = Vector2(22, -16)
 rotation = -1.5708
+
+[connection signal="body_shape_entered" from="DetectionArea" to="." method="_on_detection_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="DetectionArea" to="." method="_on_detection_area_body_shape_exited"]
+[connection signal="body_entered" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_entered"]
+[connection signal="body_exited" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_exited"]
+[connection signal="timeout" from="damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
+[connection signal="area_shape_entered" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_area_shape_entered"]
+[connection signal="area_shape_exited" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_area_shape_exited"]
+[connection signal="body_entered" from="HamHockLeft" to="." method="_on_ham_hock_left_body_entered"]

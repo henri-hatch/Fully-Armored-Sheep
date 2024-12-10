@@ -1,0 +1,6 @@
+[background scene="res://scenes/cutscenes/idlehavenBattleWonCutscene/idlehavenShoesCutscene.tscn" fade="1.5"]
+[wait time="3.0"]
+join shoes center [animation="Fade In" length="1.5"]
+You have received the Shoes of Readiness to aid you in your journey.
+[background arg="res://addons/dialogic/Modules/Background/blackBackground.png" fade="1.5"]
+[wait time="1.5"]

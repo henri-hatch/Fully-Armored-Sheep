@@ -45,3 +45,8 @@ func closeLeaveMenu():
 func _process(delta):
 	if Input.is_action_just_pressed("pause"):
 		GlobalVariables.pause(pauseMenu)
+	if GlobalVariables.idlehavenBattleWon:
+		MusicPlayer.play_song("victoryMusic")
+		await get_tree().create_timer(7.11).timeout #length of victory music
+		MusicPlayer.play_song("idlehavenRestored")
+		Dialogic.start("shoesCutscene")

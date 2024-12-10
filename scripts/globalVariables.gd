@@ -38,6 +38,11 @@ func startSlothGluttonyBattle():
 	get_tree().change_scene_to_file("res://scenes/bossArenas/idlehavenBossArena.tscn")
 
 
+func endShoesCutscene():
+	shoesOfReadiness = true
+	get_tree().change_scene_to_file("res://scenes/idlehavenRestored.tscn")
+
+
 func pause(menu_path):
 	if paused:
 		menu_path.hide()

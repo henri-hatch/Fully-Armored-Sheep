@@ -12,6 +12,7 @@ var current_dir = ""
 @onready var sheepAnim = $AnimationPlayer
 @onready var weapon = $Weapon
 
+
 func _physics_process(delta):
 	enemy_attack()
 	attack()
