@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://ctdidc2767oli"]
+[gd_scene load_steps=61 format=3 uid="uid://ctdidc2767oli"]
 
 [ext_resource type="Script" path="res://scripts/characterScripts/sheep.gd" id="1_08u5m"]
 [ext_resource type="Texture2D" uid="uid://7uk4ji781hgq" path="res://assets/sprites/sheep/Sheep-Base.png" id="2_1n41h"]
@@ -868,12 +868,6 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_db8ql"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_wd0eg"]
-radius = 26.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_otp6e"]
-radius = 20.0
-
 [node name="Sheep" type="CharacterBody2D"]
 collision_layer = 9
 script = ExtResource("1_08u5m")
@@ -907,12 +901,6 @@ rotation = 2.90946
 [node name="sword" parent="Weapon" instance=ExtResource("6_h6xdu")]
 collision_layer = 2
 
-[node name="Player Hitbox" type="Area2D" parent="."]
-
-[node name="player_hitbox" type="CollisionShape2D" parent="Player Hitbox"]
-position = Vector2(0, -12)
-shape = SubResource("CircleShape2D_wd0eg")
-
 [node name="hit_stun" type="Timer" parent="."]
 wait_time = 0.5
 
@@ -932,17 +920,6 @@ show_percentage = false
 wait_time = 10.0
 autostart = true
 
-[node name="player_hurtbox" type="Area2D" parent="."]
-visible = false
-
-[node name="hurt_box" type="CollisionShape2D" parent="player_hurtbox"]
-position = Vector2(0, -11)
-shape = SubResource("CircleShape2D_otp6e")
-
-[connection signal="body_entered" from="Player Hitbox" to="." method="_on_player_hitbox_body_entered"]
-[connection signal="body_exited" from="Player Hitbox" to="." method="_on_player_hitbox_body_exited"]
 [connection signal="timeout" from="hit_stun" to="." method="_on_hit_stun_timeout"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="regen" to="." method="_on_regen_timeout"]
-[connection signal="body_entered" from="player_hurtbox" to="." method="_on_player_hurtbox_body_entered"]
-[connection signal="body_exited" from="player_hurtbox" to="." method="_on_player_hurtbox_body_exited"]
