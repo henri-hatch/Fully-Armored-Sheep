@@ -908,7 +908,6 @@ rotation = 2.90946
 collision_layer = 2
 
 [node name="Player Hitbox" type="Area2D" parent="."]
-visible = false
 
 [node name="player_hitbox" type="CollisionShape2D" parent="Player Hitbox"]
 position = Vector2(0, -12)
