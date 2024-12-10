@@ -55,8 +55,6 @@ func _on_enemy_hitbox_body_entered(body: Node2D) -> void:
 		
 func end_attack():
 	await gluttonyAnim.animation_finished
-	#GlobalVariables.enemy_attack = true
-	#GlobalVariables.attack_amount = 20
 	attacking = false
 	if(player.position.x - position.x) < 0:
 		gluttonyDir = "Left"
@@ -64,8 +62,6 @@ func end_attack():
 		gluttonyDir = "Right"
 	if player_in_zone == true:
 		attacking = true
-	#else:
-		#GlobalVariables.enemy_attack = false
 	
 
 func _on_enemy_hitbox_body_exited(body: Node2D) -> void:
@@ -99,11 +95,11 @@ func update_health():
 		healthbar.visible = true
 
 
-func _on_enemy_hurtbox_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area.has_node("player_hitbox"):
+func _on_enemy_hurtbox_body_entered(body: Node2D) -> void:
+	if body.has_method("player"):
 		player_inattack_zone = true
 
 
-func _on_enemy_hurtbox_area_shape_exited(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
-	if area.has_node("player_hitbox"):
+func _on_enemy_hurtbox_body_exited(body: Node2D) -> void:
+	if body.has_method("player"):
 		player_inattack_zone = false

@@ -169,7 +169,7 @@ radius = 88.0
 radius = 26.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_47h4p"]
-radius = 17.0294
+radius = 31.0161
 
 [node name="Snake" type="CharacterBody2D"]
 motion_mode = 1
@@ -221,5 +221,5 @@ shape = SubResource("CircleShape2D_47h4p")
 [connection signal="body_entered" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_entered"]
 [connection signal="body_exited" from="Enemy Hitbox" to="." method="_on_enemy_hitbox_body_exited"]
 [connection signal="timeout" from="damage_cooldown" to="." method="_on_damage_cooldown_timeout"]
-[connection signal="area_shape_entered" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_area_shape_entered"]
-[connection signal="area_shape_exited" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_area_shape_exited"]
+[connection signal="body_entered" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_body_entered"]
+[connection signal="body_exited" from="Enemy Hurtbox" to="." method="_on_enemy_hurtbox_body_exited"]

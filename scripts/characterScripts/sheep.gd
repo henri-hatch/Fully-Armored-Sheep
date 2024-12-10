@@ -73,16 +73,16 @@ func player():
 
 
 func _on_player_hitbox_body_entered(body: Node2D) -> void:
-	pass
+	enemy_inattack_range = true
 
 
 func _on_player_hitbox_body_exited(body: Node2D) -> void:
-	pass
+	enemy_inattack_range = false
 	
 	
 func enemy_attack():
 	if health > 0:
-		if enemy_inattack_range and hitstun_cooldown == true and GlobalVariables.enemy_attack == true:
+		if hitstun_cooldown == true and GlobalVariables.enemy_attack == true:
 			health -= GlobalVariables.attack_amount
 			SfxPlayer.hurt()
 			hitstun_cooldown = false
@@ -96,7 +96,7 @@ func _on_hit_stun_timeout() -> void:
 
 func attack():
 	var dir = current_dir
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and enemy_inattack_range:
 		GlobalVariables.player_current_attack = true
 		$attack_timer.start()
 
@@ -122,13 +122,3 @@ func _on_regen_timeout() -> void:
 			health = 100
 	if health <= 0:
 		health = 0
-
-
-func _on_player_hurtbox_body_entered(body: Node2D) -> void:
-	if body.has_method("enemy"):
-		enemy_inattack_range = true
-
-
-func _on_player_hurtbox_body_exited(body: Node2D) -> void:
-	if body.has_method("enemy"):
-		enemy_inattack_range = false
