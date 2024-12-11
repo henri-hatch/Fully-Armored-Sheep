@@ -1101,7 +1101,7 @@ size = Vector2(34, 49)
 radius = 134.034
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l505a"]
-radius = 89.0225
+radius = 77.0065
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3x7as"]
 radius = 56.0
