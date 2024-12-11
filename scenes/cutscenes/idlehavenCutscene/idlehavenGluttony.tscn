@@ -731,3 +731,4 @@ position = Vector2(586, 496)
 [node name="Gluttony" parent="." instance=ExtResource("3_tmo5i")]
 position = Vector2(687, 510)
 scale = Vector2(1.25, 1.25)
+script = null
